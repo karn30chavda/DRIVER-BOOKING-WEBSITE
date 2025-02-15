@@ -80,6 +80,18 @@ Firebase Hosting
 Web Browsers (Chrome, Firefox, Edge, etc.)
 
 
+---
+
+
+* Responsive Design
+
+This Website is fully responsive and adapts to different devices:
+
+✅ Mobile-Friendly (Compact layout)
+
+✅ Tablet View Optimized
+
+✅ Desktop Mode (Large buttons for easy clicks)
 
 
 ---
