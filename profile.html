@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://fonts.googleapis.com/css?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(74 107 113);
+            color: #fff;
+            font-family: "Balsamiq Sans", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container {
+            display: flex;
+            align-items: center;
+            width: 60%;
+            background-color: #cfe1b9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            color: #1fab89;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            padding: 1rem;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            background-color: rgb(74 107 113);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            color: #fff;
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #1fab89;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        button {
+            color: #fff;
+            background: #009579;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+        button:hover {
+            background: #0069d9;
+            color: #fff700;
+            font-weight: bold;
+        }
+        #save-details {
+            color: #fff;
+            background: #009579;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+        #save-details:hover {
+            background: #07488d;
+            color: #fff700;
+            font-weight: bold;
+        }
+        h1 {
+            color: #1fab89;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        strong {
+            color: #20232a;
+        }
+        #user-info,
+        #additional-info {
+            width: 100%;
+            text-align: center;
+        }
+        p,
+        span {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        #user-info span,
+        #additional-info span {
+            color: #3399ff;
+        }
+        #additional-info i {
+            cursor: pointer;
+            color: #77d0ff;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        input[type="text"] {
+            width: calc(100% - 40px);
+            padding: 8px;
+            margin: 5px 20px;
+            box-sizing: border-box;
+            background-color: #20232a;
+            color: #fff;
+            border: 1px solid #3399ff;
+            border-radius: 4px;
+            display: block;
+        }
+        @media screen and (max-width: 500px) {
+            #container {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.2);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+                color: #fff;
+                flex-wrap: nowrap;
+                justify-content: space-around;
+                padding: 1rem;
+                flex-direction: column;
+            }
+            .container {
+                width: 90%;
+            }
+        }
+        @media screen and (min-width: 501px) and (max-width: 768px) {
+            #container {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.2);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+                color: #fff;
+                flex-wrap: nowrap;
+                justify-content: space-around;
+                padding: 1rem;
+                flex-direction: column;
+            }
+            .container {
+                width: 90%;
+            }
+        }
+        @media screen and (min-width: 769px) and (max-width: 992px) {
+            #container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="profile-container">
+            <img src="IMAGES/admin_icon.png" alt="Profile Picture" class="profile-pic" id="profile-pic">
+            <input type="file" id="profile-image-upload" accept="image/*">
+            <button onclick="document.getElementById('profile-image-upload').click()">Change Photo</button>
+            <h1>User Profile</h1>
+            <div id="user-info">
+                <p><strong>Username:</strong> <span id="username">Karan</span></p>
+                <p><strong>Email:</strong> <span id="useremail">karan@example.com</span></p>
+            </div>
+        </div>
+        <div class="container" id="additional-info-container">
+            <h2>Additional Details</h2>
+            <p><strong>Phone Number:</strong> <span id="userphone" onclick="editField('phone')">Not provided</span><i onclick="editField('phone')"></i></p>
+            <p><strong>Address:</strong> <span id="useraddress" onclick="editField('address')">Not provided</span><i onclick="editField('address')"></i></p>
+            <p><strong>Car Type:</strong> <span id="usercartype" onclick="editField('cartype')">Not provided</span><i onclick="editField('cartype')"></i></p>
+            <button id="save-details">Save Details</button>
+        </div>
+    </div>
+    <script>
+        function editField(field) {
+            let span = document.getElementById('user' + field);
+            let currentValue = span.textContent;
+            let input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentValue;
+            input.onblur = function () {
+                saveField(field, input.value);
+                span.textContent = input.value;
+                span.style.display = '';
+                input.remove();
+            };
+            span.parentNode.insertBefore(input, span);
+            span.style.display = 'none';
+            input.focus();
+        }
+        function saveField(field, value) {
+            console.log(field + ' updated to ' + value);
+            alert(field + ' updated to ' + value);
+        }
+    </script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+        import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-storage.js";
+        import { getDatabase, ref as databaseRef, set, get } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyD-yskwM8Ak2Zqc5AO5WVjYFNksWQtk-bc",
+            authDomain: "designated-driver-service-123.firebaseapp.com",
+            databaseURL: "https://designated-driver-service-123-default-rtdb.firebaseio.com",
+            projectId: "designated-driver-service-123",
+            storageBucket: "designated-driver-service-123.appspot.com",
+            messagingSenderId: "709589312938",
+            appId: "1:709589312938:web:e6d520a340c2892569b7d3",
+            measurementId: "G-NEC0RXRM2P"
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const storage = getStorage(app);
+        const db = getDatabase(app);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    document.getElementById('username').textContent = user.displayName || 'No name provided';
+                    document.getElementById('useremail').textContent = user.email;
+                    if (user.photoURL) {
+                        document.getElementById('profile-pic').src = user.photoURL;
+                    }
+                    fetchUserDetails(user.uid);
+                } else {
+                    window.location.href = 'login.html'; // Redirect to login page if not logged in
+                }
+            });
+
+            document.getElementById('profile-image-upload').addEventListener('change', function (event) {
+                uploadProfilePicture(event.target.files[0]);
+            });
+
+            document.getElementById('save-details').addEventListener('click', function () {
+                saveAdditionalInfo();
+            });
+        });
+
+        function uploadProfilePicture(file) {
+            if (!auth.currentUser || !file) {
+                console.error("No user logged in or file provided.");
+                return;
+            }
+            const profileStorageRef = storageRef(storage, 'profilePictures/' + auth.currentUser.uid + '/profilePicture');
+            uploadBytes(profileStorageRef, file).then((snapshot) => {
+                return getDownloadURL(snapshot.ref);
+            }).then((downloadURL) => {
+                updateProfile(auth.currentUser, {
+                    photoURL: downloadURL
+                }).then(() => {
+                    document.getElementById('profile-pic').src = downloadURL;
+                    alert('Profile picture updated successfully!');
+                });
+            }).catch((error) => {
+                console.error('Upload failed', error);
+                alert('Error uploading image: ' + error.message);
+            });
+        }
+
+        function saveAdditionalInfo() {
+            const user = auth.currentUser;
+            if (user) {
+                const userId = user.uid;
+                const phone = document.getElementById('userphone').textContent;
+                const address = document.getElementById('useraddress').textContent;
+                const carType = document.getElementById('usercartype').textContent;
+
+                set(databaseRef(db, 'users/' + userId), {
+                    phone: phone,
+                    address: address,
+                    carType: carType
+                }).then(() => {
+                    alert('Data saved successfully.');
+                }).catch((error) => {
+                    alert('Error while saving data: ' + error.message);
+                });
+            } else {
+                alert('No user is logged in.');
+            }
+        }
+
+        function fetchUserDetails(userId) {
+            const userDetailsRef = databaseRef(db, 'users/' + userId);
+            get(userDetailsRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.val();
+                    document.getElementById('userphone').textContent = data.phone || 'Not provided';
+                    document.getElementById('useraddress').textContent = data.address || 'Not provided';
+                    document.getElementById('usercartype').textContent = data.carType || 'Not provided';
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Designated Driver Service</title>
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Balsamiq+sans-serif&display=swap" rel="stylesheet">
+ <link rel="icon" type="image/png" href="IMAGES/logo.png">
+ <link rel="stylesheet" href="css/HOME.CSS">
+ <style>
+#success-container {
+  display: flex; /* Maintain flexbox layout */
+  flex-direction: row; /* Align items horizontally */
+  align-items: center; /* Vertically center content */
+  margin: 35px 50px; /* Adjust margins as needed */
+  padding: 0px 50px;
+  color: #009579;
+  text-align: center;
+}
+
+#left-success {
+  flex: 2; /* Allocate more space for text content */
+  margin: 0 20px 0 0; /* Add right margin for spacing */
+}
+
+#right-success {
+  flex: 1; /* Allocate space for image */
+}
+
+.image-container {
+ display: flex;
+ justify-content: right;
+  width: auto; /* Allow image to adapt to content */
+  height: 370px; /* Set image height (adjust as desired) */
+  flex-direction: column;
+}
+
+#success-container h1 {
+  color: #009579;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+#left-success p {
+  color: #02b3ff;
+  margin: 20px;
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES  */
+@media screen and (max-width: 500px) {
+  #success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 300px;
+  flex-direction: column;
+}
+}
+
+/* MEDIA QUERY FOR TABLETS */
+@media screen and (min-width: 501px) and (max-width: 768px) {
+    #success-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1rem;
+      padding: 1rem;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: 300px;
+    flex-direction: column;
+  }
+}
+
+/* MEDIA QUERY FOR LAPTOPS */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  #success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 300px;
+  flex-direction: column;
+}
+}
+
+  
+ </style>
+
+</head>
+
+<body>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div id="logo">
+          <img src="images\logo.png" alt="Website Logo" style="cursor: pointer" onclick="window.location.reload()">
+        </div>
+  
+        <ul id="menu-items">
+          <li class="item"><a href="HOME.HTML">Home</a></li>
+          <li class="item"><a href="SERVICES.HTML">Services</a></li>
+          <li class="item"><a href="RATES.HTML">Rates</a></li>
+          <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+        </ul>
+  
+        <div id="menu-toggle" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <!-- Dropdown menu items -->
+          <div id="dropdown-menu">
+            <li class="item"><a href="HOME.HTML">Home</a></li>
+            <li class="item"><a href="PROFILE.HTML" id="profile-login-link" style="display: none;">My Profile</a></li>
+            <li class="item"><a href="my-bookings.html" id="booking-link">My Bookings</a></li>
+            <li class="item"><a href="SERVICES.HTML">Services</a></li>
+            <li class="item"><a href="RATES.HTML">Rates</a></li>
+            <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+            <li class="item"><a href="user-sign.html" id="user-login-link">User</a></li>
+            <li class="item"><a href="DRIVER-LOGIN.HTML" id="driver-login-link">Driver</a></li>
+            <a href="#" id="logoutweb">Logout</a>
+          </div>
+        </div>
+        <!-- Add the login button -->
+        <button id="login-btn">LOGIN</button>
+        <div id="popup-container" class="admin-popup">
+          <div class="popup-content">
+            <button id="button1">User</button>
+            <button id="button2">Driver</button>
+          </div>
+        </div>
+        <div id="admin-icon" class="dropdown admin-icon">
+          <img src="images/admin_icon.png" id="userProfileImage" alt="Admin Profile Icon" style="cursor: pointer">
+          <div class="dropdown-content">
+            <a href="profile.html" id="dropprofile">My Profile</a>
+            <a href="my-bookings.html" id="dropbooking">My Bookings</a>
+            <a href="#" id="logout">Logout</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+ <section>
+  <div id="success-container">
+   <div id="left-success">
+
+    <h1>How we provide Effortless Travel experience</h3>
+     <p>
+     <h3>Quick Recruitment And Verified Drivers:</h3>
+     <p>Rest assured with our verified, licensed, and well-trained drivers who have undergone rigorous background
+      checks, ensuring your safety and peace of mind. Get drivers for your service swiftly and effortlessly with our
+      efficient recruitment process, ensuring timely availability for your needs.
+     </p>
+     <p>
+     <h3>Driver within 60 Mins:Need a driver urgently?</h3>
+     <p> We guarantee prompt assistance with a driver arriving at yourlocation within 60 minutes. Experience a
+      hassle-free and straightforward process for driver selection, making it easy and convenient to find the perfect
+      fit for your requirements.
+     </p>
+     <h3>Special Drivers:</h3>
+     <p>For your high-end and luxury vehicles, we have a dedicated team of professional driver service who have
+      experience in handling prestigious automobiles. Tailoring our service to your unique needs, we match you with a
+      suitable driver who meets your specific requirements and preferences, ensuring a personalized experience.
+     </p>
+     <h3> Contract Basis:</h3>
+     <p>We offer flexible contract options, providing long-term driver services to cater to your situational
+      requirement, guaranteeing reliable and consistent support whenever you require.
+     </p>
+     <p>
+      So, don't let commuting be a source of stress anymore. Book a driver on call and enjoy a comfortable and
+      hassle-free journey.Contact us today to experience our exceptional service and discover the
+      convenience of having a professional driver at your fingertips.
+     </p>
+
+   </div>
+   <div id="right-success">
+
+    <div class="image-container">
+     <img src="images/success.png" alt=" ">
+    </div>
+
+   </div>
+ </section>
+ </section>
+ <!--footer-->
+
+ <footer>
+  <div class="footer-container">
+   <div id="footer-logo">
+    <img src="images\logo.png" alt=" Website Logo">
+   </div>
+   <div class="footer-section">
+
+    <h2>About Us</h2>
+    <p>we provide a wide range of driver services to meet your needs. From hourly
+     drivers for short errands to permanent drivers for long-term commitments, we have the perfect driver for you.
+    </p>
+   </div>
+   <div class="footer-section">
+    <h2>OUR SERVICES</h2>
+    <ul>
+      <li><a onclick="location.href='SERVICES.html#local-service-cont'" style="cursor: pointer">Local Drivers</a></li>
+          <li><a onclick="location.href='SERVICES.html#outstation-service-cont'" style="cursor: pointer">Outstation Drivers</a></li>
+          <li><a onclick="location.href='SERVICES.html#outstation-drop-service-cont'" style="cursor: pointer">Permanent Drivers</a></li>
+          <li><a onclick="location.href='SERVICES.html#permanent-service-cont'" style="cursor: pointer">Outstation-Drop Drivers</a></li>
+    </ul>
+   </div>
+
+   <div class="footer-section">
+    <h2>CONTACT US</h2>
+    <p>9/B Arasa shopping contor, S.V road, Next to panert shop, Andheri West, Mumbai-400058</p>
+    <p><a id="contact-link"
+      href="mailto:info@designateddriverandcabbooking.com">info@designateddriverandcabbooking.com</a></p>
+    <p>+022 4343 9090</p>
+   </div>
+
+
+   <div class="copyright">
+    <p>&copy; 2024 All Rights Reserved By Obey Jobs Private Limited</p>
+    <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+   </div>
+ </footer>
+ <script>
+
+  // FUNCTION FOR OPEN MENU TOGGLE IN NAVBAR
+
+  function toggleMenu() {
+    var navbar = document.getElementById("navbar");
+    navbar.classList.toggle("open");
+  }
+
+  window.addEventListener("click", function (event) {
+    if (!navbar.contains(event.target) && !navbarToggle.contains(event.target)) {
+      navbar.classList.remove("open");
+    }
+  });
+
+
+  // popup for admin-icon for driver and user
+
+  // popup for login-button for driver and user
+  document.addEventListener("DOMContentLoaded", function () {
+
+    var popupbtn = document.getElementById("login-btn");
+    var popup = document.getElementById("popup-container");
+
+    popup.style.display = "none";
+
+    // Toggle the popup visibility on click
+    popupbtn.addEventListener("click", function () {
+      if (popup.style.display === "none") {
+        popup.style.display = "block";
+      } else {
+        popup.style.display = "none";
+      }
+    });
+  });
+
+  // Button 1 click action
+  document.getElementById("button1").addEventListener("click", function () {
+    // Redirect to the desired page when Button 1 is clicked
+    window.location.href = "user-sign.html";
+  });
+
+  // Button 2 click action
+  document.getElementById("button2").addEventListener("click", function () {
+    // Redirect to the desired page when Button 2 is clicked
+    window.location.href = "DRIVER-LOGIN.html";
+  });
+
+
+  // Toggle functionality for the admin icon dropdown
+  var adminIcon = document.getElementById("admin-icon");
+  var dropdownContent = adminIcon.querySelector(".dropdown-content");
+
+  dropdownContent.style.display = "none"; // Hide dropdown by default
+
+
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logoutweb').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logout').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+<script type="module" src="firebase-auth.js"></script>
+</body>
+</html>

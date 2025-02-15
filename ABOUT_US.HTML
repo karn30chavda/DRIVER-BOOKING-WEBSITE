@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designated DriverService </title>
+  <link rel="stylesheet" href="css/HOME.CSS">
+  <link rel="stylesheet" href="css/ABOUT.CSS">
+  <link rel="icon" type="image/png" href="IMAGES/logo.png">
+</head>
+
+<body>
+  <header>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="images\logo.png" alt="Website Logo" style="cursor: pointer" onclick="window.location.reload()">
+      </div>
+
+      <ul id="menu-items">
+        <li class="item"><a href="HOME.HTML">Home</a></li>
+        <li class="item"><a href="SERVICES.HTML">Services</a></li>
+        <li class="item"><a href="RATES.HTML">Rates</a></li>
+        <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+      </ul>
+
+      <div id="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <!-- Dropdown menu items -->
+        <div id="dropdown-menu">
+          <li class="item"><a href="HOME.HTML">Home</a></li>
+          <li class="item"><a href="PROFILE.HTML" id="profile-login-link" style="display: none;">My Profile</a></li>
+          <li class="item"><a href="my-bookings.html" id="booking-link">My Bookings</a></li>
+          <li class="item"><a href="SERVICES.HTML">Services</a></li>
+          <li class="item"><a href="RATES.HTML">Rates</a></li>
+          <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+          <li class="item"><a href="user-sign.html" id="user-login-link">User</a></li>
+          <li class="item"><a href="DRIVER-LOGIN.HTML" id="driver-login-link">Driver</a></li>
+          <a href="#" id="logoutweb">Logout</a>
+        </div>
+      </div>
+      <!-- Add the login button -->
+      <button id="login-btn">LOGIN</button>
+      <div id="popup-container" class="admin-popup">
+        <div class="popup-content">
+          <button id="button1">User</button>
+          <button id="button2">Driver</button>
+        </div>
+      </div>
+      <div id="admin-icon" class="dropdown admin-icon">
+        <img src="images/admin_icon.png" id="userProfileImage" alt="Admin Profile Icon" style="cursor: pointer">
+        <div class="dropdown-content">
+          <a href="profile.html" id="dropprofile">My Profile</a>
+          <a href="my-bookings.html" id="dropbooking">My Bookings</a>
+          <a href="#" id="logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+</body>
+<section>
+
+  <div id="about-us-container">
+    <div id="left-about-us">
+
+      <h1>ABOUT US</h1>
+      <p class="about-us-para">We are presently available in Mumbai and Mumbai Suburban.</p>
+      <p class="about-us-para">We provide one-way & round trip driver services for local & outstation travel. Our drivers require 60 Minutes from booking time to reach at the customer's doorstep.</p>
+      <p class="about-us-para">We provide drivers with 5+ Years of experience, who can drive automatic & Manual cars in Local, Highway & Hills stations. Our google ratings are 4.8</p>
+      <p class="about-us-para">We provided masks & sanitizer to our drivers to ensure the safety of drivers & customers from Covid-19.</p>
+      <p class="about-us-para">Our backend team assigns nearby drivers & tracks them to ensures they reach at customer's doorstep as per the scheduled time. Our customer care is 9999160322</p>
+      <p class="about-us-para">Our Head office is based out of Office No G-39, Vardhman Grand Market, Sector 3, Dwarka, New Delhi 110078</p>
+      
+    </div>
+    <div id="right-about-us">
+
+      <div class="image-container">
+        <img src="images/about-us.png" alt="ABOUT_US IMAGE">
+      </div>
+      
+    </div>
+  </section>
+ <!--footer-->
+
+ <footer>
+  <div class="footer-container">
+    <div id="footer-logo">
+      <img src="images\logo.png" alt=" Website Logo">
+    </div>
+    <div class="footer-section">
+
+      <h2>About Us</h2>
+      <p>we provide a wide range of driver services to meet your needs. From hourly
+        drivers for short errands to permanent drivers for long-term commitments, we have the perfect driver for you.
+      </p>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <div class="footer-section">
+      <h2>OUR SERVICES</h2>
+      <ul>
+        <li><a onclick="location.href='SERVICES.html#local-service-cont'" style="cursor: pointer">Local Drivers</a></li>
+        <li><a onclick="location.href='SERVICES.html#outstation-service-cont'" style="cursor: pointer">Outstation Drivers</a></li>
+        <li><a onclick="location.href='SERVICES.html#outstation-drop-service-cont'" style="cursor: pointer">Permanent Drivers</a></li>
+        <li><a onclick="location.href='SERVICES.html#permanent-service-cont'" style="cursor: pointer">Outstation-Drop Drivers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h2>CONTACT US</h2>
+      <p>9/B Arasa shopping contor, S.V road, Next to panert shop, Andheri West, Mumbai-400058</p>
+      <p><a id="contact-link"
+          href="mailto:info@designateddriverandcabbooking.com">info@designateddriverandcabbooking.com</a></p>
+      <p>+022 4343 9090</p>
+    </div>
+
+
+    <div class="copyright">
+      <p>&copy; 2024 All Rights Reserved By Designated Driver Service</p>
+      <p><a href="TERMS-AND-COND.html">Terms & Conditions</a> </p>
+    </div>
+</footer>
+<script>
+
+  // FUNCTION FOR OPEN MENU TOGGLE IN NAVBAR
+
+  function toggleMenu() {
+    var navbar = document.getElementById("navbar");
+    navbar.classList.toggle("open");
+  }
+
+  window.addEventListener("click", function (event) {
+    if (!navbar.contains(event.target) && !navbarToggle.contains(event.target)) {
+      navbar.classList.remove("open");
+    }
+  });
+
+
+  // popup for admin-icon for driver and user
+
+  // popup for login-button for driver and user
+  document.addEventListener("DOMContentLoaded", function () {
+
+    var popupbtn = document.getElementById("login-btn");
+    var popup = document.getElementById("popup-container");
+
+    popup.style.display = "none";
+
+    // Toggle the popup visibility on click
+    popupbtn.addEventListener("click", function () {
+      if (popup.style.display === "none") {
+        popup.style.display = "block";
+      } else {
+        popup.style.display = "none";
+      }
+    });
+  });
+
+  // Button 1 click action
+  document.getElementById("button1").addEventListener("click", function () {
+    // Redirect to the desired page when Button 1 is clicked
+    window.location.href = "user-sign.html";
+  });
+
+  // Button 2 click action
+  document.getElementById("button2").addEventListener("click", function () {
+    // Redirect to the desired page when Button 2 is clicked
+    window.location.href = "DRIVER-LOGIN.html";
+  });
+
+
+  // Toggle functionality for the admin icon dropdown
+  var adminIcon = document.getElementById("admin-icon");
+  var dropdownContent = adminIcon.querySelector(".dropdown-content");
+
+  dropdownContent.style.display = "none"; // Hide dropdown by default
+
+
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logoutweb').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logout').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+<script type="module" src="firebase-auth.js"></script>
+</body>
+</html>

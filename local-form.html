@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Booking Form</title>
+  <link rel="stylesheet" href="css/HOME.CSS">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+sans-serif&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Lexend', sans-serif;
+      height: 100vh;
+      background-color: rgb(74, 107, 113);
+      color: rgb(60, 144, 171);
+      font-size: 16px;
+    }
+
+    form {
+      width: 70%;
+      margin: auto;
+      background: #cfe1b9;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 4rem;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      text-align: center;
+      color: #1FAB89;
+      font-size: 2.5rem;
+    }
+
+    .input-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .input-group>div,
+    .input-group-full {
+      width: 100%;
+      padding: 10px;
+    }
+
+    .input-group-radio {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #000000;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    input[type="number"],
+    select {
+      width: 100%;
+      border: none;
+      border-bottom: 3px solid #1FAB89;
+      background-color: #cfe1b9;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:not(:placeholder-shown),
+    input[type="email"]:not(:placeholder-shown),
+    input[type="tel"]:not(:placeholder-shown),
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+        transition: background-color 5000s ease-in-out 0s; /* Long duration to essentially freeze color */
+        -webkit-text-fill-color: #000 !important;
+        background-color: #cfe1b9 !important;
+        border-bottom: 3px solid #1FAB89 !important;
+    }
+
+    input[type="submit"] {
+      padding: 10px 60px;
+      background-color: #1FAB89;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: auto;
+      transition: background-color 0.3s;
+      width: 60%;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #58AFF6;
+      color: #000000;
+    }
+
+    @media (max-width: 500px) {
+      form {
+        width: 90%;
+        padding: 10px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .input-group-radio {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media screen and (min-width: 501px) and (max-width: 768px) {
+      form {
+        width: 90%;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .input-group-radio {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (min-width: 900px) {
+      form {
+        width: 60%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="images\logo.png" alt="Website Logo" style="cursor: pointer" onclick="window.location.reload()">
+      </div>
+
+      <ul id="menu-items">
+        <li class="item"><a href="HOME.HTML">Home</a></li>
+        <li class="item"><a href="SERVICES.HTML">Services</a></li>
+        <li class="item"><a href="RATES.HTML">Rates</a></li>
+        <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+      </ul>
+
+      <div id="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <!-- Dropdown menu items -->
+        <div id="dropdown-menu">
+          <li class="item"><a href="HOME.HTML">Home</a></li>
+          <li class="item"><a href="PROFILE.HTML" id="profile-login-link" style="display: none;">My Profile</a></li>
+          <li class="item"><a href="my-bookings.html" id="booking-link">My Bookings</a></li>
+          <li class="item"><a href="SERVICES.HTML">Services</a></li>
+          <li class="item"><a href="RATES.HTML">Rates</a></li>
+          <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+          <li class="item"><a href="user-sign.html" id="user-login-link">User</a></li>
+          <li class="item"><a href="DRIVER-LOGIN.HTML" id="driver-login-link">Driver</a></li>
+          <a href="#" id="logoutweb">Logout</a>
+        </div>
+      </div>
+      <!-- Add the login button -->
+      <button id="login-btn">LOGIN</button>
+      <div id="popup-container" class="admin-popup">
+        <div class="popup-content">
+          <button id="button1">User</button>
+          <button id="button2">Driver</button>
+        </div>
+      </div>
+      <div id="admin-icon" class="dropdown admin-icon">
+        <img src="images/admin_icon.png" id="userProfileImage" alt="Admin Profile Icon" style="cursor: pointer">
+        <div class="dropdown-content">
+          <a href="profile.html" id="dropprofile">My Profile</a>
+          <a href="my-bookings.html" id="dropbooking">My Bookings</a>
+          <a href="#" id="logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div>
+    <form id="localBookingForm">
+      <div class="heading-box">
+        <h2>LOCAL BOOKING</h2>
+      </div>
+      <div class="input-group-radio">
+        <label><input type="radio" name="tripType" value="roundTrip" checked> Round Trip</label>
+        <label><input type="radio" name="tripType" value="oneWay"> One Way</label>
+      </div>
+      <div class="input-group">
+        <div>
+          <label for="carType">Car Type:</label>
+          <select id="carType" onchange="updateRate()">
+            <option>Select Car</option>
+            <option value="Hatchback">Hatchback</option>
+            <option value="Sedan">Sedan</option>
+            <option value="SUV">SUV</option>
+            <option value="Luxury Sedan">Luxury Sedan</option>
+            <option value="Luxury SUV">Luxury SUV</option>
+          </select>
+        </div>
+        <div>
+          <label for="dutyHours">Duty Hours:</label>
+          <select id="dutyHours" onchange="updateRate()">
+            <option value="1">1 Hour</option>
+            <option value="2">2 Hours</option>
+            <option value="4">4 Hours</option>
+            <option value="8">8 Hours</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group">
+        <div>
+          <label for="pickupLocation">Pickup Location:</label>
+          <select id="pickupLocation">
+            <option value="Select Pickup">Select Pickup</option>
+            <!-- Pune Pickup Locations -->
+            <option value="Aundh">Aundh</option>
+            <option value="Alandi">Alandi</option>
+            <option value="Baner">Baner</option>
+            <option value="Balewadi">Balewadi</option>
+            <option value="Bavdhan">Bavdhan</option>
+            <option value="Bhosari">Bhosari</option>
+            <option value="Bibvewadi">Bibvewadi</option>
+            <option value="Chandan Nagar">Chandan Nagar</option>
+            <option value="Chinchwad">Chinchwad</option>
+            <option value="Deccan Gymkhana">Deccan Gymkhana</option>
+            <option value="Dhayari">Dhayari</option>
+            <option value="Dhanori">Dhanori</option>
+            <option value="Hadapsar">Hadapsar</option>
+            <option value="Hinjewadi">Hinjewadi</option>
+            <option value="Kalyani Nagar">Kalyani Nagar</option>
+            <option value="Karve Nagar">Karve Nagar</option>
+            <option value="Katraj">Katraj</option>
+            <option value="Katraj-Kondhwa Road">Katraj-Kondhwa Road</option>
+            <option value="Koregaon Bhima">Koregaon Bhima</option>
+            <option value="Koregaon Park">Koregaon Park</option>
+            <option value="Kharadi">Kharadi</option>
+            <option value="Kothrud">Kothrud</option>
+            <option value="Laxmi Road">Laxmi Road</option>
+            <option value="Lohegaon">Lohegaon</option>
+            <option value="Magarpatta">Magarpatta</option>
+            <option value="Magarpatta City">Magarpatta City</option>
+            <option value="Narhe">Narhe</option>
+            <option value="NIBM">NIBM</option>
+            <option value="Nigdi">Nigdi</option>
+            <option value="Pimpri">Pimpri</option>
+            <option value="Pimple Saudagar">Pimple Saudagar</option>
+            <option value="Pune Cantonment">Pune Cantonment</option>
+            <option value="Pune Railway Station">Pune Railway Station</option>
+            <option value="Sadashiv Peth">Sadashiv Peth</option>
+            <option value="Sangvi">Sangvi</option>
+            <option value="Shaniwar Peth">Shaniwar Peth</option>
+            <option value="Shivaji Nagar">Shivaji Nagar</option>
+            <option value="Sinhagad Road">Sinhagad Road</option>
+            <option value="Undri">Undri</option>
+            <option value="Vadgaon Budruk">Vadgaon Budruk</option>
+            <option value="Viman Nagar">Viman Nagar</option>
+            <option value="Vishal Nagar">Vishal Nagar</option>
+            <option value="Vishrantwadi">Vishrantwadi</option>
+            <option value="Wanowrie">Wanowrie</option>
+            <option value="Warje">Warje</option>
+            <option value="Warje Malwadi">Warje Malwadi</option>
+            <option value="Wagholi">Wagholi</option>
+            <option value="Wakad">Wakad</option>
+            <option value="Yerwada">Yerwada</option>
+            <!-- Mumbai Pickup Locations -->
+            <option value="Andheri">Andheri</option>
+            <option value="Bandra">Bandra</option>
+            <option value="Borivali">Borivali</option>
+            <option value="Bhayander">Bhayander</option>
+            <option value="Byculla">Byculla</option>
+            <option value="Charni Road">Charni Road</option>
+            <option value="Churchgate">Churchgate</option>
+            <option value="Dadar">Dadar</option>
+            <option value="Ghatkopar">Ghatkopar</option>
+            <option value="Mumbai CST">Mumbai CST</option>
+            <!-- Mumbai Suburban Pickup Locations -->
+            <option value="Ambernath">Ambernath</option>
+            <option value="BOISAR">BOISAR</option>
+            <option value="Badlapur">Badlapur</option>
+            <option value="Bhandup">Bhandup</option>
+            <option value="Bhiwandi Road">Bhiwandi Road</option>
+            <option value="Kalyan">Kalyan</option>
+            <option value="Kasara">Kasara</option>
+            <option value="Nallasopara">Nallasopara</option>
+            <!-- Thane Pickup Locations -->
+            <option value="Thane">Thane</option>
+            <option value="Karjat">Karjat</option>
+          </select>
+        </div>
+        <div>
+          <label for="visitingLocation">Visiting Location:</label>
+          <select id="visitingLocation">
+            <option value="Select Pickup">Select Pickup</option>
+            <!-- Pune Pickup Locations -->
+            <option value="Aundh">Aundh</option>
+            <option value="Alandi">Alandi</option>
+            <option value="Baner">Baner</option>
+            <option value="Balewadi">Balewadi</option>
+            <option value="Bavdhan">Bavdhan</option>
+            <option value="Bhosari">Bhosari</option>
+            <option value="Bibvewadi">Bibvewadi</option>
+            <option value="Chandan Nagar">Chandan Nagar</option>
+            <option value="Chinchwad">Chinchwad</option>
+            <option value="Deccan Gymkhana">Deccan Gymkhana</option>
+            <option value="Dhayari">Dhayari</option>
+            <option value="Dhanori">Dhanori</option>
+            <option value="Hadapsar">Hadapsar</option>
+            <option value="Hinjewadi">Hinjewadi</option>
+            <option value="Kalyani Nagar">Kalyani Nagar</option>
+            <option value="Karve Nagar">Karve Nagar</option>
+            <option value="Katraj">Katraj</option>
+            <option value="Katraj-Kondhwa Road">Katraj-Kondhwa Road</option>
+            <option value="Koregaon Bhima">Koregaon Bhima</option>
+            <option value="Koregaon Park">Koregaon Park</option>
+            <option value="Kharadi">Kharadi</option>
+            <option value="Kothrud">Kothrud</option>
+            <option value="Laxmi Road">Laxmi Road</option>
+            <option value="Lohegaon">Lohegaon</option>
+            <option value="Magarpatta">Magarpatta</option>
+            <option value="Magarpatta City">Magarpatta City</option>
+            <option value="Narhe">Narhe</option>
+            <option value="NIBM">NIBM</option>
+            <option value="Nigdi">Nigdi</option>
+            <option value="Pimpri">Pimpri</option>
+            <option value="Pimple Saudagar">Pimple Saudagar</option>
+            <option value="Pune Cantonment">Pune Cantonment</option>
+            <option value="Pune Railway Station">Pune Railway Station</option>
+            <option value="Sadashiv Peth">Sadashiv Peth</option>
+            <option value="Sangvi">Sangvi</option>
+            <option value="Shaniwar Peth">Shaniwar Peth</option>
+            <option value="Shivaji Nagar">Shivaji Nagar</option>
+            <option value="Sinhagad Road">Sinhagad Road</option>
+            <option value="Undri">Undri</option>
+            <option value="Vadgaon Budruk">Vadgaon Budruk</option>
+            <option value="Viman Nagar">Viman Nagar</option>
+            <option value="Vishal Nagar">Vishal Nagar</option>
+            <option value="Vishrantwadi">Vishrantwadi</option>
+            <option value="Wanowrie">Wanowrie</option>
+            <option value="Warje">Warje</option>
+            <option value="Warje Malwadi">Warje Malwadi</option>
+            <option value="Wagholi">Wagholi</option>
+            <option value="Wakad">Wakad</option>
+            <option value="Yerwada">Yerwada</option>
+            <!-- Mumbai Pickup Locations -->
+            <option value="Andheri">Andheri</option>
+            <option value="Bandra">Bandra</option>
+            <option value="Borivali">Borivali</option>
+            <option value="Bhayander">Bhayander</option>
+            <option value="Byculla">Byculla</option>
+            <option value="Charni Road">Charni Road</option>
+            <option value="Churchgate">Churchgate</option>
+            <option value="Dadar">Dadar</option>
+            <option value="Ghatkopar">Ghatkopar</option>
+            <option value="Mumbai CST">Mumbai CST</option>
+            <!-- Mumbai Suburban Pickup Locations -->
+            <option value="Ambernath">Ambernath</option>
+            <option value="BOISAR">BOISAR</option>
+            <option value="Badlapur">Badlapur</option>
+            <option value="Bhandup">Bhandup</option>
+            <option value="Bhiwandi Road">Bhiwandi Road</option>
+            <option value="Kalyan">Kalyan</option>
+            <option value="Kasara">Kasara</option>
+            <option value="Nallasopara">Nallasopara</option>
+            <!-- Thane Pickup Locations -->
+            <option value="Thane">Thane</option>
+            <option value="Karjat">Karjat</option>
+          </select>
+        </div>
+      </div>
+      <div class="input-group">
+        <div>
+          <label for="address">Address:</label>
+          <input type="text" id="address" placeholder="Enter Address">
+        </div>
+        <div>
+          <label for="rate">Approximate Rate:</label>
+          <input type="text" id="rate" value="0" disabled>
+        </div>
+      </div>
+      <div class="input-group">
+        <div>
+          <label for="date">Date:</label>
+          <input type="date" id="date">
+        </div>
+        <div>
+          <label for="time">Time:</label>
+          <input type="time" id="time">
+        </div>
+      </div>
+      <input type="submit" value="Book Now">
+    </form>
+  </div>
+
+
+  <!-- FORM SCRIPT  -->
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const today = new Date().toISOString().substring(0, 10);
+      document.getElementById('date').value = today;
+    });
+
+    function updateRate() {
+      const carType = document.getElementById("carType").value;
+      const dutyHours = parseInt(document.getElementById("dutyHours").value);
+      const rate = document.getElementById("rate");
+
+      let rateValue = 0;
+
+      switch (carType) {
+        case "Hatchback":
+          switch (dutyHours) {
+            case 1:
+              rateValue = 200;
+              break;
+            case 2:
+              rateValue = 300;
+              break;
+            case 4:
+              rateValue = 500;
+              break;
+            case 8:
+              rateValue = 800;
+              break;
+          }
+          break;
+        case "Sedan":
+          switch (dutyHours) {
+            case 1:
+              rateValue = 250;
+              break;
+            case 2:
+              rateValue = 350;
+              break;
+            case 4:
+              rateValue = 550;
+              break;
+            case 8:
+              rateValue = 850;
+              break;
+          }
+          break;
+        case "SUV":
+          switch (dutyHours) {
+            case 1:
+              rateValue = 300;
+              break;
+            case 2:
+              rateValue = 400;
+              break;
+            case 4:
+              rateValue = 600;
+              break;
+            case 8:
+              rateValue = 900;
+              break;
+          }
+          break;
+        case "Luxury Sedan":
+          switch (dutyHours) {
+            case 1:
+              rateValue = 350;
+              break;
+            case 2:
+              rateValue = 450;
+              break;
+            case 4:
+              rateValue = 650;
+              break;
+            case 8:
+              rateValue = 950;
+              break;
+          }
+          break;
+        case "Luxury SUV":
+          switch (dutyHours) {
+            case 1:
+              rateValue = 400;
+              break;
+            case 2:
+              rateValue = 500;
+              break;
+            case 4:
+              rateValue = 700;
+              break;
+            case 8:
+              rateValue = 1000;
+              break;
+          }
+          break;
+        default:
+          rateValue = 0;  // If no car type is selected or if default "Select Car" is chosen
+          break;
+      }
+
+      rate.value = rateValue + "rs";
+    }
+
+  </script>
+
+
+
+  <!-- SCRIPT FOR NAVBAR  -->
+  <script>
+
+    // FUNCTION FOR OPEN MENU TOGGLE IN NAVBAR
+
+    function toggleMenu() {
+      var navbar = document.getElementById("navbar");
+      navbar.classList.toggle("open");
+    }
+
+    window.addEventListener("click", function (event) {
+      if (!navbar.contains(event.target) && !navbarToggle.contains(event.target)) {
+        navbar.classList.remove("open");
+      }
+    });
+
+
+    // popup for admin-icon for driver and user
+
+    // popup for login-button for driver and user
+    document.addEventListener("DOMContentLoaded", function () {
+
+      var popupbtn = document.getElementById("login-btn");
+      var popup = document.getElementById("popup-container");
+
+      popup.style.display = "none";
+
+      // Toggle the popup visibility on click
+      popupbtn.addEventListener("click", function () {
+        if (popup.style.display === "none") {
+          popup.style.display = "block";
+        } else {
+          popup.style.display = "none";
+        }
+      });
+    });
+
+    // Button 1 click action
+    document.getElementById("button1").addEventListener("click", function () {
+      // Redirect to the desired page when Button 1 is clicked
+      window.location.href = "user-sign.html";
+    });
+
+    // Button 2 click action
+    document.getElementById("button2").addEventListener("click", function () {
+      // Redirect to the desired page when Button 2 is clicked
+      window.location.href = "DRIVER-LOGIN.html";
+    });
+
+
+    // Toggle functionality for the admin icon dropdown
+    var adminIcon = document.getElementById("admin-icon");
+    var dropdownContent = adminIcon.querySelector(".dropdown-content");
+
+    dropdownContent.style.display = "none"; // Hide dropdown by default
+
+
+  </script>
+  <script type="module">
+    import { logoutUser } from './firebase-auth.js';
+
+    document.getElementById('logoutweb').addEventListener('click', function () {
+      logoutUser();
+    });
+  </script>
+  <script type="module">
+    import { logoutUser } from './firebase-auth.js';
+
+    document.getElementById('logout').addEventListener('click', function () {
+      logoutUser();
+    });
+  </script>
+  <script type="module" src="firebase-auth.js"></script>
+
+
+  <!-- FIRBASE AUTHENTICATION SCRIPT  -->
+  <script type="module">
+    // Firebase Configuration
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js';
+    import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
+    import { getDatabase, ref, push } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyD-yskwM8Ak2Zqc5AO5WVjYFNksWQtk-bc",
+      authDomain: "designated-driver-service-123.firebaseapp.com",
+      databaseURL: "https://designated-driver-service-123-default-rtdb.firebaseio.com",
+      projectId: "designated-driver-service-123",
+      storageBucket: "designated-driver-service-123.appspot.com",
+      messagingSenderId: "709589312938",
+      appId: "1:709589312938:web:e6d520a340c2892569b7d3",
+      measurementId: "G-NEC0RXRM2P"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+
+    document.getElementById('localBookingForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const user = auth.currentUser;
+      if (!user) {
+        alert('You need to be logged in to save a booking.');
+        return;
+      }
+
+      const tripType = document.querySelector('input[name="tripType"]:checked').value;
+      const carType = document.getElementById("carType").value;
+      const pickupLocation = document.getElementById("pickupLocation").value;
+      const visitingLocation = document.getElementById("visitingLocation").value;
+      const address = document.getElementById("address").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const rate = document.getElementById("rate").value;
+
+      if (!tripType || carType === "Select Car" || !pickupLocation || !visitingLocation || !address || !date || !time) {
+        alert("Please fill out all fields before submitting.");
+        return;
+      }
+
+      // Save booking under the user's UID
+      try {
+        await push(ref(database, 'users/' + user.uid + '/local bookings'), {
+          tripType: tripType,
+          carType: carType,
+          pickupLocation: pickupLocation,
+          visitingLocation: visitingLocation,
+          address: address,
+          date: date,
+          time: time,
+          rate: rate
+        });
+        alert('Booking saved successfully.');
+      } catch (error) {
+        alert('Failed to save booking. Error: ' + error.message);
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>

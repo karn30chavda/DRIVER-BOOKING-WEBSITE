@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permanent Form</title>
+  <link rel="stylesheet" href="css/HOME.CSS">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lexend', sans-serif;
+      color: rgb(60, 144, 171);
+      /* Text color */
+      font-size: 16px;
+      background-color: rgb(74, 107, 113);
+      /* Background color */
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      width: 70%;
+      margin: 4rem auto;
+      background: #cfe1b9;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #1FAB89;
+      font-size: 2.5rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #000000;
+      /* Label color */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-bottom: 3px solid #1FAB89;
+      background-color: #cfe1b9;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:not(:placeholder-shown),
+    input[type="email"]:not(:placeholder-shown),
+    input[type="tel"]:not(:placeholder-shown),
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+        transition: background-color 5000s ease-in-out 0s; 
+        -webkit-text-fill-color: #000 !important;
+        background-color: #cfe1b9 !important;
+        border-bottom: 3px solid #1FAB89 !important;
+    }
+
+    input[type="submit"] {
+      padding: 10px 60px;
+      background-color: #1FAB89;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: auto;
+      transition: background-color 0.3s;
+      width: 60%;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #58AFF6;
+      color: #000000;
+    }
+
+    .input-group-dual {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .input-group-dual .input-group {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .input-group-dual .input-group:last-child {
+      margin-right: 0;
+    }
+
+    #info-section {
+      background-color: #cfe1b9;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 10px;
+      margin: 2rem 0;
+    }
+
+    #info-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    #info-section h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    #info-section p {
+      margin-bottom: 1rem;
+    }
+
+
+    @media (max-width: 500px) {
+      form {
+        width: 90%;
+        padding: 10px;
+        margin-top: 3rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .input-group>div {
+        flex: 1 1 100%;
+      }
+
+
+    }
+
+    @media screen and (min-width: 501px) and (max-width: 768px) {
+      form {
+        width: 90%;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .input-group.dual {
+        flex-direction: column;
+      }
+
+      .input-group.dual .field {
+        margin-right: 0;
+      }
+    }
+
+    @media (min-width: 900px) {
+      form {
+        width: 60%;
+        /* More narrower form */
+      }
+
+      .input-group.dual {
+        flex-direction: column;
+      }
+
+      .input-group.dual .field {
+        margin-right: 0;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="images\logo.png" alt="Website Logo" style="cursor: pointer" onclick="window.location.reload()">
+      </div>
+
+      <ul id="menu-items">
+        <li class="item"><a href="HOME.HTML">Home</a></li>
+        <li class="item"><a href="SERVICES.HTML">Services</a></li>
+        <li class="item"><a href="RATES.HTML">Rates</a></li>
+        <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+      </ul>
+
+      <div id="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <!-- Dropdown menu items -->
+        <div id="dropdown-menu">
+          <li class="item"><a href="HOME.HTML">Home</a></li>
+          <li class="item"><a href="PROFILE.HTML" id="profile-login-link" style="display: none;">My Profile</a></li>
+          <li class="item"><a href="my-bookings.html" id="booking-link">My Bookings</a></li>
+          <li class="item"><a href="SERVICES.HTML">Services</a></li>
+          <li class="item"><a href="RATES.HTML">Rates</a></li>
+          <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+          <li class="item"><a href="user-sign.html" id="user-login-link">User</a></li>
+          <li class="item"><a href="DRIVER-LOGIN.HTML" id="driver-login-link">Driver</a></li>
+          <a href="#" id="logoutweb">Logout</a>
+        </div>
+      </div>
+      <!-- Add the login button -->
+      <button id="login-btn">LOGIN</button>
+      <div id="popup-container" class="admin-popup">
+        <div class="popup-content">
+          <button id="button1">User</button>
+          <button id="button2">Driver</button>
+        </div>
+      </div>
+      <div id="admin-icon" class="dropdown admin-icon">
+        <img src="images/admin_icon.png" id="userProfileImage" alt="Admin Profile Icon" style="cursor: pointer">
+        <div class="dropdown-content">
+          <a href="profile.html" id="dropprofile">My Profile</a>
+          <a href="my-bookings.html" id="dropbooking">My Bookings</a>
+          <a href="#" id="logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <form id="permanent-service-form">
+    <div class="heading-box">
+      <h2>PERMANENT DRIVER REQUEST</h2>
+    </div>
+
+    <div class="input-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Enter your name">
+    </div>
+
+    <div class="input-group-dual">
+      <div class="input-group">
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" placeholder="Mobile Number">
+      </div>
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
+    </div>
+
+    <div class="input-group-dual">
+      <div class="input-group">
+        <label for="carType">Car Type:</label>
+        <select id="carType">
+          <option>Select Car Type</option>
+          <option>Hatchback</option>
+          <option>Sedan</option>
+          <option>SUV</option>
+          <option>Luxury Sedan</option>
+          <option>Luxury SUV</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="duration">duration:</label>
+        <select id="duration">
+          <option>Select Duration</option>
+          <option>1 months</option>
+          <option>3 months</option>
+          <option>6 months</option>
+          <option>9 months</option>
+          <option>1 years</option>
+        </select>
+      </div>
+    </div>
+    <div class="input-group">
+      <label for="location">Location:</label>
+      <select id="location">
+        <option>Select Location</option>
+        <option>Mumbai</option>
+        <option>Mumbai Subarbans</option>
+        <option>Thane</option>
+        <option>Pune</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="message">Message:</label>
+      <textarea id="message" placeholder="Enter any additional information"></textarea>
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+
+  <div id="info-section">
+    <h2>Registered Office</h2>
+    <p><span class="symbol">📍</span>2/G Arasa shopping center,
+      S.V road, Next to Paneri Shop,
+      Andheri West, Mumbai - 400050.</p>
+    <p> <span class="symbol">📞</span>022-4233 9120</p>
+    <p> <span class="symbol">✉</span> <a
+        href="mailto:info@designateddriverandcabbooking.com">info@designateddriverandcabbooking.com</a></p>
+
+    <h2>Branches:-</h2>
+    <div id="branches">
+
+      <div class="branch-info">
+        <h3>Andheri Office:-</h3>
+      </div>
+      <p><span class="symbol">📍</span>Garage G, Ground Floor, suptra,
+        45 navin Cross Road, MMGG
+        Marg, Opp. Avon star Hotel, Andheri
+        East, Mumbai - 400514</p>
+      <p> <span class="symbol">📞</span>+91 9625875433</p>
+
+      <div class="branch-info">
+        <h3>Dahisar Office:-</h3>
+      </div>
+      <p><span class="symbol">📍</span>Office No. 16, roberto Apartment,
+        behind Ashok Talkies, Juhu
+        siddhi Society, julli Naka,
+        Dahisar West, Mumbai - 405601</p>
+      <p> <span class="symbol">📞</span>+91 9782928322</p>
+
+      <div class="branch-info">
+        <h3>Pune Office:-</h3>
+      </div>
+      <p><span class="symbol">📍</span>114, sabaskar Colony, Near Krome
+        Mall, Next to Vijay Sales, mullanpur
+        Road, Hadapsar, Pune 411043.</p>
+      <p> <span class="symbol">📞</span>+91 9625879690</p>
+    </div>
+  </div>
+</body>
+<!-- SCRIPT FOR NAVBAR  -->
+<script>
+
+  // FUNCTION FOR OPEN MENU TOGGLE IN NAVBAR
+
+  function toggleMenu() {
+    var navbar = document.getElementById("navbar");
+    navbar.classList.toggle("open");
+  }
+
+  window.addEventListener("click", function (event) {
+    if (!navbar.contains(event.target) && !navbarToggle.contains(event.target)) {
+      navbar.classList.remove("open");
+    }
+  });
+
+
+  // popup for admin-icon for driver and user
+
+  // popup for login-button for driver and user
+  document.addEventListener("DOMContentLoaded", function () {
+
+    var popupbtn = document.getElementById("login-btn");
+    var popup = document.getElementById("popup-container");
+
+    popup.style.display = "none";
+
+    // Toggle the popup visibility on click
+    popupbtn.addEventListener("click", function () {
+      if (popup.style.display === "none") {
+        popup.style.display = "block";
+      } else {
+        popup.style.display = "none";
+      }
+    });
+  });
+
+  // Button 1 click action
+  document.getElementById("button1").addEventListener("click", function () {
+    // Redirect to the desired page when Button 1 is clicked
+    window.location.href = "user-sign.html";
+  });
+
+  // Button 2 click action
+  document.getElementById("button2").addEventListener("click", function () {
+    // Redirect to the desired page when Button 2 is clicked
+    window.location.href = "DRIVER-LOGIN.html";
+  });
+
+
+  // Toggle functionality for the admin icon dropdown
+  var adminIcon = document.getElementById("admin-icon");
+  var dropdownContent = adminIcon.querySelector(".dropdown-content");
+
+  dropdownContent.style.display = "none"; // Hide dropdown by default
+
+</script>
+
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logoutweb').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logout').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+
+<!-- FIRBASE AUTHENTICATION SCRIPT  -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js';
+  import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
+  import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js';
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD-yskwM8Ak2Zqc5AO5WVjYFNksWQtk-bc",
+    authDomain: "designated-driver-service-123.firebaseapp.com",
+    databaseURL: "https://designated-driver-service-123-default-rtdb.firebaseio.com",
+    projectId: "designated-driver-service-123",
+    storageBucket: "designated-driver-service-123.appspot.com",
+    messagingSenderId: "709589312938",
+    appId: "1:709589312938:web:e6d520a340c2892569b7d3",
+    measurementId: "G-NEC0RXRM2P"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const database = getDatabase(app);
+
+  document.getElementById('permanent-service-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const user = auth.currentUser;
+    if (user) {
+      const name = document.getElementById("name").value;
+      const mobile = document.getElementById("mobile").value;
+      const email = document.getElementById("email").value;
+      const carType = document.getElementById("carType").value;
+      const duration = document.getElementById("duration").value;
+      const location = document.getElementById("location").value;
+      const message = document.getElementById("message").value;
+
+      if (!name || carType === "Select Car Type" || !mobile || !email || !duration == "Select duration" || !location == "Select location" || !message) {
+        alert("Please fill out all fields before submitting.");
+        return;
+      }
+
+      set(ref(database, 'users/' + user.uid + '/Permanent booking Request/' + Date.now()), {
+        name: name,
+        mobile: mobile,
+        email: email,
+        carType: carType,
+        duration: duration,
+        location: location,
+        message: message
+      }).then(() => {
+        alert('Booking saved successfully.');
+      }).catch(error => {
+        alert('Failed to save booking. Error: ' + error.message);
+      });
+    } else {
+      alert('You need to be logged in to save a booking.');
+    }
+  });
+
+</script>
+
+</html>

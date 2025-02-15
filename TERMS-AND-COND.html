@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Designated Driver and Service </title>
+ <link rel="stylesheet" href="css/HOME.CSS">
+
+ 
+</head>
+<style>
+
+  
+ #box {
+  background-color: #cfe1b9;
+        color: #02b3ff;
+        margin: 3rem auto; 
+        max-width: 90%; 
+    }
+ 
+
+ #box h2 {
+  color: #009579;
+  padding: 25px;
+  text-align: center;
+
+ }
+
+ 
+ #box h3 {
+  color: #009579;
+ }
+ 
+ #box  p {
+  color:  #02b3ff;;
+  padding: 5px;
+  margin: 5px;
+ }
+
+ @media only screen and (max-width: 768px) {
+  #box {
+   font-size: 14px;
+  }
+ }
+
+ @media only screen and (min-width: 768px) and (max-width: 992px) {
+  #box {
+   font-size: 16px;
+  }
+ }
+
+ @media only screen and (min-width: 992px) {
+  #box {
+   font-size: 18px;
+  }
+ }
+</style>
+
+
+<body>
+  <header>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="images\logo.png" alt="Website Logo" style="cursor: pointer" onclick="window.location.reload()">
+      </div>
+
+      <ul id="menu-items">
+        <li class="item"><a href="HOME.HTML">Home</a></li>
+        <li class="item"><a href="SERVICES.HTML">Services</a></li>
+        <li class="item"><a href="RATES.HTML">Rates</a></li>
+        <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+      </ul>
+
+      <div id="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <!-- Dropdown menu items -->
+        <div id="dropdown-menu">
+          <li class="item"><a href="HOME.HTML">Home</a></li>
+          <li class="item"><a href="PROFILE.HTML" id="profile-login-link" style="display: none;">My Profile</a></li>
+          <li class="item"><a href="my-bookings.html" id="booking-link">My Bookings</a></li>
+          <li class="item"><a href="SERVICES.HTML">Services</a></li>
+          <li class="item"><a href="RATES.HTML">Rates</a></li>
+          <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+          <li class="item"><a href="user-sign.html" id="user-login-link">User</a></li>
+          <li class="item"><a href="DRIVER-LOGIN.HTML" id="driver-login-link">Driver</a></li>
+          <a href="#" id="logoutweb">Logout</a>
+        </div>
+      </div>
+      <!-- Add the login button -->
+      <button id="login-btn">LOGIN</button>
+      <div id="popup-container" class="admin-popup">
+        <div class="popup-content">
+          <button id="button1">User</button>
+          <button id="button2">Driver</button>
+        </div>
+      </div>
+      <div id="admin-icon" class="dropdown admin-icon">
+        <img src="images/admin_icon.png" id="userProfileImage" alt="Admin Profile Icon" style="cursor: pointer">
+        <div class="dropdown-content">
+          <a href="profile.html" id="dropprofile">My Profile</a>
+          <a href="my-bookings.html" id="dropbooking">My Bookings</a>
+          <a href="#" id="logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<section>
+  <div id="box">
+   <p>
+   <h2>Terms and Conditions</h2>
+   </p>
+   <p>
+    This Terms and condition is applicable to all our offers given via Call / Mobile App/ Website. If you do
+    not agree with the Terms of Use, please do not access and use this Website / Application/ Call / Mobile
+    App (as hereinafter defined).
+   </p>
+   <p>
+    “Read entirely for full terms and conditions.”
+   </p>
+   <p>
+    By registering as a Customer (as defined below) of Designated Driver Service / Obey Jobs Pvt. Ltd. The parent
+    company and brand owner of www.designateddriverservice.com (alternatively referred to herein as “DDS”, we”, “us”,
+    or “our” as the context requires) on Designateddriverservice.com, or any other website/ Mobile app/ Application
+    owned, licensed, or otherwise operated by Designated Driver Service (collectively, the “DDS Website/ App”) or any
+    other part of the DDS Platform (as defined below), you (hereinafter alternatively referred to as
+    “Client”, “Customer”, “you”, or “your” as the context requires) are agreeing to the following Terms and
+    Conditions.
+   </p>
+   <p>
+    Your registration with Designated Driver Service means you would be sharing your personal information such as Name,
+    Email Id, Mobile no, Address, Car / Vehicle Details with us, and we would be using this information to
+    provide you our services.
+   </p>
+   <p>
+    The Terms and Conditions constitute a binding contract between you and Designated Driver Service (alternately
+    referred to herein as this “Contract”, “Terms and Conditions” or “Agreement”). DDS is the owner and
+    operator of the Designated Driver Service Website/ Designated Driver Service Websites and the corresponding mobile
+    applications made available on iOS or Android devices (collectively the “Designated Driver Service - Professional
+    Drivers” and, together with the Designateddriverservice.com Websites, the DDS referral service, any all other
+    Designated Driver Service software, and any and all Designated Driver Service telephone numbers, collectively, the “Designated Driver
+    Service Platform”).
+   </p>
+   <p>
+    <b>
+     <h3>Definition</h3>
+    </b>
+    <br>
+    a) “Designated Driver Service”, “we”, “our” and “us” shall mean Humble Mobile;
+    <br>
+    b) “You”, yourself / yourselves and “your” shall mean a User, who meets the eligibility criteria set out
+    below;
+    <br>
+    c) “Application” shall mean the application supplied by Designated Driver Service and downloaded and installed by
+    you on your single mobile device (smart phone)/ Hand Held Device / Tablet/ Pad;
+    <br>
+    d) “Driver” or ‘’Drivers’’ shall mean the driver engaged by you by using our Website/Application;
+    <br>
+    e) “Call” or “Call center” means the booking you call and give at any our helpline / call center.
+    <br>
+    f) “Service” or “Services” shall mean the service of providing short-term private Driver solutions via
+    the Application/Website as defined;
+    <br>
+    g) ‘’User’’ or ‘’Users’’ shall have the meaning any person who is accepting our services; and
+    <br>
+    h) ‘’Website’’ shall mean the website www.designateddriverservice.com
+   </p>
+   <p>
+    <b>
+     <h3>Service Definition</h3>
+    </b>
+    <br>
+    Except as otherwise defined in this Agreement, capitalized terms have the meanings set forth herein.
+    <br>
+    “Customer” is a person or entity that utilizes any part of the Designated Driver Service Platform or
+    Designateddriverservice.com/ DDS referral service to avail his, her, or itself, as the case may be, to Drivers
+    willing to provide designated driving services.
+    <br>
+    “Driver” is a person who is registered on the Designated Driver Service Platform in order to utilize the Designated Driver
+    Service Platform and Designated Driver Service/ DDS referral service to avail themselves to Customers who seek
+    designated driving services.
+   </p>
+   <p>
+    <b>
+     <h3>General Terms of Service</h3>
+    </b>
+    <br>
+    1) Designated Driver Service is just a aggregating platform, customer request for services are floated to nearest
+    driver, their availability and functioning is not governed by DDS.
+    <br>
+    2) We ensure that all our Drivers / Chauffeur reach you in the min time, but there are various factors
+    that may effect the quality of service. We don’t accept any delay related matters unless the same is
+    purposeful. We will always ensure that our driver reaches you on time.
+    <br>
+    3) Any delay in reaching you towards the fulfillment of service would not be compensated with any amount
+    or settlement. We shall try and ensure action against the driver but that also after our team
+    investigates the reason and discussion with you.
+    <br>
+    4) Our drivers will wait only for a max of 15mins, at the location and destination mentioned by you,
+    after which the driver would start the trip and your duty calculation would start.
+    <br>
+    5) You may cancel the booking within 45 minutes or the driver taps on the way on your screen/ mobile
+    prior to the time of journey, without any cancellation charges for all Services. The customer is liable
+    for Rs 250/- charge if the trip is canceled thereafter.
+    <br>
+    6) When a trip ends, Designated Driver Service driver ends the trip on the DDS Partner app on his mobile device. It
+    then calculates the total fare amount due from You and the same would also appear on your mobile device.
+    You may pay the amount via cash or in case if the driver agrees may make a wallet / direct electronic
+    payment.
+    <br>
+    7) Any payment related issue, except when such issue is due to an error or fault in the Site or
+    Application, shall be resolved between You and the payment processor. Designated Driver Service shall not be
+    responsible for any unauthorized use/ false claims etc.
+    <br>
+    8) We may offer schemes and promo from time to time, which may be discontinued as per the management
+    wish without any prior intimation to you. You agree that any codes given would have a expiry date or
+    limit to use.
+    <br>
+    9) Designated Driver Service shall not be liable for any damages resulting from the use of, or inability to use,
+    the Website/Application, including damages caused by malware, viruses or any incorrectness or
+    incompleteness of the information on the Website/Application.
+    <br>
+    10) Designated Driver Service shall further not be liable for damages resulting from the use of, or the inability
+    to use, electronic means of communication with the Website/Application, including — but not limited to —
+    damages resulting from failure or delay in delivery of electronic communications, interception or
+    manipulation of electronic communications by third parties or by computer programs used for electronic
+    communications and transmission of viruses.
+    <br>
+    11) The quality of the Services requested through the use of the Application is entirely the
+    responsibility of the Driver who ultimately provides such transportation services to you. Designated Driver Service
+    under no circumstance accepts liability in connection with and/or arising from the Services provided by
+    the Driver or any acts, actions, behaviour, conduct, and/or negligence on the part of the Driver.
+    <br>
+    12) We shall not be held liable for any failure or delay in performing Services where such failure
+    arises as a result of any act or omission, which is outside our reasonable control such as unprecedented
+    circumstances, overwhelming and unpreventable events caused directly and exclusively by forces of nature
+    that can be neither anticipated, nor controlled, nor prevented by the exercise of prudence, diligence,
+    and care, including but not limited to: war, riot, civil commotion; compliance with any law or
+    governmental order, rule, regulation or direction and acts of third parties ( “Force Majeure” ).
+    <br>
+    13) If we have contracted to provide identical or similar Service to more than one User and are
+    prevented from fully meeting our obligations to you by reason of an event of Force Majeure, we may
+    decide at our absolute discretion which booking we will fulfill by providing the Service, and to what
+    extent.
+    <br>
+    14) We have taken all reasonable steps to prevent internet fraud and ensure any data collected from you
+    is stored as securely and safely as possible. However, we shall not be held liable in the unlikely event
+    of a breach in our secure computer servers or those of third parties other than as required under
+    applicable law.
+    <br>
+    15) Designated Driver Service does not represent or endorse the accuracy or reliability of any information, or
+    advertisements (collectively, the "Content") contained on, distributed through, or linked, downloaded or
+    accessed from or contained on the Website/Application, or the quality of any products, information or
+    other materials displayed, or obtained by you as a result of an advertisement or any other information
+    or offer in or in connection with the Service.
+    <br>
+    16) We use third party services and tracking tools, we also use third party to deliver us services and
+    we have signed agreement with all for data privacy and security of any data.
+    <br>
+    17) Links to third party sites are provided by the Application / Website as a convenience to Users and
+    Designated Driver Service does not have any control over such sites i.e., content and resources provided by them.
+    <br>
+    18) We may allow you/ users to access third party website / apps/ offers etc, you are requested to read
+    their terms & condition and also their privacy policy, before using any such site / apps services. The
+    user understands and acknowledges that Designated Driver Service or any of our team members are not in control of
+    any third party misleads or issues.
+    <br>
+    19) You will only access the Service using authorized means. You are responsible to check and ensure you
+    download the correct Application for your device or the correct Website in your computer or are calling
+    the correct phone no. Designated Driver Service shall not be liable if you do not have a compatible mobile device
+    or if you download the wrong version of the Application for your mobile device or Website for the
+    computer. Designated Driver Service reserves the right to terminate the Service and the use of the Application/
+    Website should you use the Service or Application with an incompatible or unauthorized device.
+    <br>
+    20) You have the legal right and authority to possess and operate the vehicle when engaging our Services
+    and you confirm, represent and warrant that the said vehicle is in good operating condition and meets
+    the industry safety standards and all applicable statutory requirements for a motor vehicle of its kind.
+    <br>
+    21) You will be solely responsible for any and all liability which results from or is alleged as a
+    result of the condition of your vehicle, legal compliance, etc., including, but not limited to, personal
+    injuries, death and property damages.
+    <br>
+    22) You will be solely responsible for the full functionality of your vehicle. If your vehicle fails to
+    function (electrical, mechanical or other) in any way while the Services are being availed of by you,
+    you will be responsible for all storage fees, roadside assistance, alternate transportation and repair
+    of any kind and neither Designated Driver Service / DDS/ Obey Jobs Pvt. Ltd. nor the Driver shall be responsible in
+    any manner whatsoever. You have the legal right to designate the Driver as your agent and delegate
+    actual authority to the Driver to operate your vehicle and make decisions on your behalf for the
+    purposes of providing Services offered through the Designated Driver, Driver Aggregating platform.
+   </p>
+   <p>
+    <b>
+     <h3>General Terms of Service</h3>
+    </b>
+    <br>
+    1) Designated Driver Service reserves the right to deny access to particular Users to any/all of its Services
+    without any prior notice/explanation in order to protect the interests of Designated Driver Service and/or other
+    Users to the Website/Application.
+    <br>
+    2) Designated Driver Service reserves the right to limit, deny or create different access to the
+    Website/Application and its features with respect to different Users and different cities.
+    <br>
+    3) We reserve the right to terminate your account or your access to the Website/Application immediately,
+    with or without notice to you, and without liability:
+    <br>
+    (i) if you have violated any of the Terms of Use;
+    <br>
+    (ii) if you have furnished us with false or misleading information;
+    <br>
+    (iii) Pursuant to requests by law enforcement or other government agencies;
+    <br>
+    (iv) in case of unexpected technical or security issues or problems;
+    <br>
+    (v) in case of discontinuance or material modification to the Services (or any part thereof); and / or
+    <br>
+    (vi) in case of interference with use of our Website/Application by others.
+    <br>
+    4) In the event of termination by you or us, your account will be disabled and you will not be granted
+    access to your account or any information or content contained in your account. You will not and not
+    attempt to create another account for accessing and using the Website/Application without the written
+    consent of Designated Driver Service.
+    <br>
+    5) This Terms of Use shall remain in full force and effect while you have an account with us. Even after
+    termination of your account with us, certain provisions of this Terms of Use will remain in effect,
+    including but not limited to, Intellectual Property Rights, Prohibited Uses and Indemnification. You
+    agree that we will not be liable to you or any third party for taking any of these actions.
+    <br>
+    6) Notwithstanding the termination of this Agreement, you shall continue to be bound by the terms of
+    this Agreement in respect of your prior use of this Website/Application and all matters connected with,
+    relating to or arising from such use.
+   </p>
+   <p>
+    <b>
+     <h3>Cancellation & Refund Policy</h3>
+    </b>
+    <br>
+    1) Designated Driver Service drivers will wait no more than 10 minutes from the requested trip start time, before
+    they start the trip timer.
+    <br>
+    2) Once a booking is placed the system based on various intellectual algorithms, places and allocates
+    the driver; in case if you wish to cancel the booking the same can be done 45 minutes prior to the trip
+    start time/ journey, in case if the Driver has Ticked / Updated “On the Way”, your duty cancellation
+    would not be possible and charges of Rs. 250 INR would be applicable there after.
+    <br>
+    3) The user agrees to pay this by cash to the Driver directly.
+    <br>
+    4) Designated Driver Service / Obey jobs would not be responsible for any reverse of payment/ or refund or any
+    other such payment.
+   </p>
+   <p>
+    <b>
+     <h3>Terms and Conditions for Permanent Drivers</h3>
+    </b>
+    <br>
+    Joining of duty will be confirmed only after acceptance of terms of service and terms of employment by
+    duly signing.
+    <br>
+    We charge Membership fee 7080/ for the selected driver with unlimited replacement guarantee incase the
+    driver leaves the job within the service period. The Membership fee is towards providing driver and does
+    not include any kind of loss, damage & theft cover.
+    <br>
+    The contract will be valid for 06 months.
+    <br>
+    In case if the driver wants to leave the job so he will give you 15 days notice period.
+    <br>
+    The agency will not be responsible if the employer gives advance, mobile, uniform etc. to the employed
+    driver.
+    <br>
+    In case the driver goes on leave for 1 or more days we will arrange a temporary driver for you at extra
+    charge. And that you can deduct from your driver salary.
+    <br>
+    In case of any offence committed by the driver on duty the agency will help the client with local police
+    station.
+    <br>
+    The agency has checked the driver documents & has done the reference call before considering the driver
+    for employment through us, however as per Mumbai police we request our client to summit the driver
+    documents to their local police station (Driver documents will be provided by the agency at the time of
+    signing the Membership).
+    <br>
+    Any dispute to the jurisdiction of Mumbai court only.
+    <br>
+    In case you want to discontinue the driver from job you need to give him 1 week notice & during this
+    notice period you can avail replacement from the agency at no extra cost.
+    <br>
+    The payment of Membership fee have to be released within 2 days after the driver has joined the duty,
+    failing to which the service might be terminated.
+   </p>
+   <p>
+    <b>
+     <h3>Indemnity</h3>
+    </b>
+    <br>
+    The User shall defend, indemnify and hold, Designated Driver Service / Obey Jobs Pvt. Ltd, its affiliates, its
+    licensors, and each of their officers, directors, other users, employees, attorneys and agents,
+    harmless, from and against any and all claims, costs, damages, losses, liabilities and expenses
+    (including attorneys' fees and costs) arising out of or in connection with the:
+    <br>
+    a) violation or breach of the Terms of Use or any applicable law
+    <br>
+    b) Regulation, whether or not referenced herein; violation of any rights of any third party, including
+    the Driver via the Application and or the Website; and use or misuse of the Application/Website or
+    Service.
+   </p>
+   <p>
+    <b>
+     <h3>Miscellaneous</h3>
+    </b>
+    <br>
+    The information mentioned here is for you to read and understand, we update our Terms & Condition from
+    time to time, you are requested to read in full. We don’t announce or notify the change of Terms &
+    Condition, We at Obey Jobs Pvt. Ltd/ Designated Driver Service try to keep all the information rates etc up to
+    date, but any information cannot be taken for up to date information.
+    <br>
+    The above mentioned Terms & Condition and Our Privacy Policy constitute the complete agreement of
+    service between the Designated Driver, Company, and User in respect to the use of Website / Call Center / Mobile
+    app.
+   </p>
+   <p>
+    <b>
+     <h3>JURISDICTION</h3>
+    </b>
+    <br>
+    The courts of Mumbai, India shall have the sole and exclusive jurisdiction in respect of any matters
+    arising from the use of the Services offered by Designated Driver Service to its User.
+    <br>
+    We request you to check our Rate Chart for updated rates and charges applicable in your area/ city/
+    state.
+    <br>
+    Designated Driver Service / Obey Jobs Pvt. Ltd have no franchise/ agents or any offices other than that mentioned
+    on our website. In case of any query we request you to write to us on info @ designateddriverservice.com
+   </p>
+   <p>
+   <h1>We request you to check our Rate Chart for updated rates and charges applicable in your area/ city/
+    state.</h1>
+   </p>
+   <p>Designated Driver Service / Obey Jobs Pvt. Ltd have no franchise/ agents or any offices other than that mentioned on
+    our website. In case of any query we request you to write to us on info @ designateddriverservice.com</p>
+
+  </div>
+ </section>
+
+
+
+
+
+
+ <footer>
+  <div class="footer-container">
+   <div id="footer-logo">
+    <img src="images\logo.png" alt=" Website Logo">
+   </div>
+   <div class="footer-section">
+
+    <h2>About Us</h2>
+    <p>we provide a wide range of driver services to meet your needs. From hourly
+     drivers for short errands to permanent drivers for long-term commitments, we have the perfect driver
+     for you.
+    </p>
+   </div>
+   <div class="footer-section">
+    <h2>OUR SERVICES</h2>
+    <ul>
+      <li><a onclick="location.href='SERVICES.html#local-service-cont'" style="cursor: pointer">Local Drivers</a></li>
+          <li><a onclick="location.href='SERVICES.html#outstation-service-cont'" style="cursor: pointer">Outstation Drivers</a></li>
+          <li><a onclick="location.href='SERVICES.html#outstation-drop-service-cont'" style="cursor: pointer">Permanent Drivers</a></li>
+          <li><a onclick="location.href='SERVICES.html#permanent-service-cont'" style="cursor: pointer">Outstation-Drop Drivers</a></li>
+    </ul>
+   </div>
+
+   <div class="footer-section">
+    <h2>CONTACT US</h2>
+    <p>9/B Arasa shopping contor, S.V road, Next to panert shop, Andheri West, Mumbai-400058</p>
+    <p><a id="contact-link"
+      href="mailto:info@designateddriverandcabbooking.com">info@designateddriverandcabbooking.com</a>
+    </p>
+    <p>+022 4343 9090</p>
+   </div>
+
+
+   <div class="copyright">
+    <p>&copy; 2024 All Rights Reserved By Obey Jobs Private Limited</p>
+    <p><a href="Terms & Conditions.html">Terms & Conditions</a></p>
+   </div>
+ </footer>
+ <script>
+
+  // FUNCTION FOR OPEN MENU TOGGLE IN NAVBAR
+
+  function toggleMenu() {
+    var navbar = document.getElementById("navbar");
+    navbar.classList.toggle("open");
+  }
+
+  window.addEventListener("click", function (event) {
+    if (!navbar.contains(event.target) && !navbarToggle.contains(event.target)) {
+      navbar.classList.remove("open");
+    }
+  });
+
+
+  // popup for admin-icon for driver and user
+
+  // popup for login-button for driver and user
+  document.addEventListener("DOMContentLoaded", function () {
+
+    var popupbtn = document.getElementById("login-btn");
+    var popup = document.getElementById("popup-container");
+
+    popup.style.display = "none";
+
+    // Toggle the popup visibility on click
+    popupbtn.addEventListener("click", function () {
+      if (popup.style.display === "none") {
+        popup.style.display = "block";
+      } else {
+        popup.style.display = "none";
+      }
+    });
+  });
+
+  // Button 1 click action
+  document.getElementById("button1").addEventListener("click", function () {
+    // Redirect to the desired page when Button 1 is clicked
+    window.location.href = "user-sign.html";
+  });
+
+  // Button 2 click action
+  document.getElementById("button2").addEventListener("click", function () {
+    // Redirect to the desired page when Button 2 is clicked
+    window.location.href = "DRIVER-LOGIN.html";
+  });
+
+
+  // Toggle functionality for the admin icon dropdown
+  var adminIcon = document.getElementById("admin-icon");
+  var dropdownContent = adminIcon.querySelector(".dropdown-content");
+
+  dropdownContent.style.display = "none"; // Hide dropdown by default
+
+
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logoutweb').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logout').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+<script type="module" src="firebase-auth.js"></script>
+
+</body>
+
+
+</html>

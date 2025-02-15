@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outstation Booking Form</title>
+  <link rel="stylesheet" href="css/HOME.CSS">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Lexend', sans-serif; 
+      height: 100vh;
+      background-color: rgb(74, 107, 113);
+      /* Background color */
+      color: rgb(60, 144, 171);
+      /* Text color */
+      font-size: 16px;
+    }
+
+    form {
+      width: 70%;
+      /* Default width */
+      margin: auto;
+      background: #cfe1b9;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 4rem;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      text-align: center;
+      color: #1FAB89;
+      font-size: 2.5rem;
+      /* Heading size */
+    }
+
+    .input-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .input-group>div {
+      width: 48%;
+      padding: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #000000;
+      /* Label color */
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    select {
+      width: 100%;
+      padding: 10px auto;
+      border: none;
+      border-bottom: 3px solid #1FAB89;
+      background-color: #cfe1b9;
+      /* Background color */
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:not(:placeholder-shown),
+    input[type="email"]:not(:placeholder-shown),
+    input[type="tel"]:not(:placeholder-shown),
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+        transition: background-color 5000s ease-in-out 0s; /* Long duration to essentially freeze color */
+        -webkit-text-fill-color: #000 !important;
+        background-color: #cfe1b9 !important;
+        border-bottom: 3px solid #1FAB89 !important;
+    }
+
+    input[type="text"]:focus,
+    input[type="date"]:focus,
+    input[type="time"]:focus,
+    select:focus {
+      border-color: #3C90AB;
+      /* Focus border color */
+    }
+
+    input[type="submit"] {
+      padding: 10px 60px;
+      background-color: #1FAB89;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: auto;
+      transition: background-color 0.3s;
+      width: 60%;
+      /* Button width */
+    }
+
+    input[type="submit"]:hover {
+      background-color: #58AFF6;
+      /* Hover background color */
+      color: #000000;
+      /* Hover text color */
+    }
+
+    .rate-tariff {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .rate-tariff a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .rate-tariff a:hover {
+      color: #58AFF6;
+    }
+
+    /* Media Queries */
+    @media (max-width: 500px) {
+      form {
+        width: 90%;
+        padding: 10px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media screen and (min-width: 501px) and (max-width: 768px) {
+      form {
+        width: 90%;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+
+    
+  @media (min-width: 900px) {
+    form {
+      width: 60%; /* More narrower form */
+    }
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="images\logo.png" alt="Website Logo" style="cursor: pointer" onclick="window.location.reload()">
+      </div>
+
+      <ul id="menu-items">
+        <li class="item"><a href="HOME.HTML">Home</a></li>
+        <li class="item"><a href="SERVICES.HTML">Services</a></li>
+        <li class="item"><a href="RATES.HTML">Rates</a></li>
+        <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+      </ul>
+
+      <div id="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <!-- Dropdown menu items -->
+        <div id="dropdown-menu">
+          <li class="item"><a href="HOME.HTML">Home</a></li>
+          <li class="item"><a href="PROFILE.HTML" id="profile-login-link" style="display: none;">My Profile</a></li>
+          <li class="item"><a href="my-bookings.html" id="booking-link">My Bookings</a></li>
+          <li class="item"><a href="SERVICES.HTML">Services</a></li>
+          <li class="item"><a href="RATES.HTML">Rates</a></li>
+          <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+          <li class="item"><a href="user-sign.html" id="user-login-link">User</a></li>
+          <li class="item"><a href="DRIVER-LOGIN.HTML" id="driver-login-link">Driver</a></li>
+          <a href="#" id="logoutweb">Logout</a>
+        </div>
+      </div>
+      <!-- Add the login button -->
+      <button id="login-btn">LOGIN</button>
+      <div id="popup-container" class="admin-popup">
+        <div class="popup-content">
+          <button id="button1">User</button>
+          <button id="button2">Driver</button>
+        </div>
+      </div>
+      <div id="admin-icon" class="dropdown admin-icon">
+        <img src="images/admin_icon.png" id="userProfileImage" alt="Admin Profile Icon" style="cursor: pointer">
+        <div class="dropdown-content">
+          <a href="profile.html" id="dropprofile">My Profile</a>
+          <a href="my-bookings.html" id="dropbooking">My Bookings</a>
+          <a href="#" id="logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <form  id="outstationBookingForm">
+    <div class="heading-box">
+      <h2>OUTSTATION BOOKING</h2>
+    </div>
+    <div class="input-group">
+      <div>
+        <label for="tripDuration">Number of Days:</label>
+        <select id="tripDuration">
+          <option value="1">Select Day</option>
+          <option value="1">1 Day</option>
+          <option value="2">2 Day</option>
+          <option value="3">3 Days</option>
+          <option value="4">4 Days</option>
+          <option value="5">5 Days</option>
+          <option value="6">6 Days</option>
+          <option value="7">7 Days</option>
+          <option value="8">8 Days</option>
+          <option value="9">9 Days</option>
+          <option value="10">10 Days</option>
+          <option value="11">11 Days</option>
+          <option value="12">12 Days</option>
+          <option value="13">13 Days</option>
+          <option value="14">14 Days</option>
+          <option value="15">15 Days</option>
+        </select>
+      </div>
+      <div>
+        <label for="carType">Car Type:</label>
+        <select id="carType">
+          <option value="Select Car Type">Select Car Type</option>
+          <option value="Hatchback">Hatchback</option>
+          <option value="Sedan">Sedan</option>
+          <option value="SUV">SUV</option>
+          <option value="Luxury Sedan">Luxury Sedan</option>
+          <option value="Luxury SUV">Luxury SUV</option>
+        </select>
+      </div>
+    </div>
+    <div class="input-group">
+      <div>
+        <label for="address">Address:</label>
+        <input type="text" id="address" placeholder="Enter Address">
+      </div>
+      <div>
+        <label for="visitingLocation">Visiting Location:</label>
+        <input type="text" id="visitingLocation" placeholder="Enter Visiting Location">
+      </div>
+    </div>
+    <div class="input-group">
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date">
+      </div>
+      <div>
+        <label for="time">Time:</label>
+        <input type="time" id="time">
+      </div>
+    </div>
+    <div class="rate-tariff">
+      <a href="RATES.HTML">View Rate Tariff</a>
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+ 
+<!-- SCRIPT FOR NAVBAR  -->
+ <script>
+
+  // FUNCTION FOR OPEN MENU TOGGLE IN NAVBAR
+
+  function toggleMenu() {
+    var navbar = document.getElementById("navbar");
+    navbar.classList.toggle("open");
+  }
+
+  window.addEventListener("click", function (event) {
+    if (!navbar.contains(event.target) && !navbarToggle.contains(event.target)) {
+      navbar.classList.remove("open");
+    }
+  });
+
+
+  // popup for admin-icon for driver and user
+
+  // popup for login-button for driver and user
+  document.addEventListener("DOMContentLoaded", function () {
+
+    var popupbtn = document.getElementById("login-btn");
+    var popup = document.getElementById("popup-container");
+
+    popup.style.display = "none";
+
+    // Toggle the popup visibility on click
+    popupbtn.addEventListener("click", function () {
+      if (popup.style.display === "none") {
+        popup.style.display = "block";
+      } else {
+        popup.style.display = "none";
+      }
+    });
+  });
+
+  // Button 1 click action
+  document.getElementById("button1").addEventListener("click", function () {
+    // Redirect to the desired page when Button 1 is clicked
+    window.location.href = "user-sign.html";
+  });
+
+  // Button 2 click action
+  document.getElementById("button2").addEventListener("click", function () {
+    // Redirect to the desired page when Button 2 is clicked
+    window.location.href = "DRIVER-LOGIN.html";
+  });
+
+
+  // Toggle functionality for the admin icon dropdown
+  var adminIcon = document.getElementById("admin-icon");
+  var dropdownContent = adminIcon.querySelector(".dropdown-content");
+
+  dropdownContent.style.display = "none"; // Hide dropdown by default
+  
+
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logoutweb').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logout').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+
+
+<!-- FIRBASE AUTHENTICATION SCRIPT  -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js';
+  import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
+  import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js';
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD-yskwM8Ak2Zqc5AO5WVjYFNksWQtk-bc",
+    authDomain: "designated-driver-service-123.firebaseapp.com",
+    databaseURL: "https://designated-driver-service-123-default-rtdb.firebaseio.com",
+    projectId: "designated-driver-service-123",
+    storageBucket: "designated-driver-service-123.appspot.com",
+    messagingSenderId: "709589312938",
+    appId: "1:709589312938:web:e6d520a340c2892569b7d3",
+    measurementId: "G-NEC0RXRM2P"
+  };
+
+  const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+
+    document.getElementById('outstationBookingForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const user = auth.currentUser;
+      if (user) {
+        const userId = user.uid;
+        const tripDuration = document.getElementById("tripDuration").value;
+        const carType = document.getElementById("carType").value;
+        const address = document.getElementById("address").value;
+        const visitingLocation = document.getElementById("visitingLocation").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+
+        if (!tripDuration || carType === "Select Car Type" || !address || !visitingLocation || !date || !time) {
+          alert("Please fill out all fields before submitting.");
+          return;
+        }
+
+        set(ref(database, 'users/' + userId + '/outstation bookings/' + Date.now()), {
+          tripDuration: tripDuration,
+          carType: carType,
+          address: address,
+          visitingLocation: visitingLocation,
+          date: date,
+          time: time
+        }).then(() => {
+          alert('Booking saved successfully.');
+        }).catch(error => {
+          alert('Failed to save booking. Error: ' + error.message);
+        });
+      } else {
+        alert('You need to be logged in to save a booking.');
+      }
+    });
+
+</script>
+</html>

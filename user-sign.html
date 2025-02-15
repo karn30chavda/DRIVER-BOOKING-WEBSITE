@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-in & Sign-up Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="CSS/user-login.css">
+</head>
+
+<body>
+    <div class="container" id="content01">
+
+        <div class="content">
+            <h2 id="sign-up-h2">USER SIGN-UP</h2>
+            <p>Already have an account ? <a href="#" id="login">Sign In</a></p>
+            <form id="sign-up-form">
+                <input type="text" id="fname" placeholder="User Name" autocomplete="off"> <br>
+                <input type="email" id="eemail_signup" placeholder="Enter your email" autocomplete="off"> <br>
+                <div class="password-container">
+                    <input type="password" name="eemail_signup" placeholder="Create Password" id="lpassword_signup">
+                    <i onclick="togglePassword('lpassword_signup')" class="fas fa-eye toggle-password"></i>
+                </div>
+                <input type="hidden" value="user" id="role">
+                <button type="submit" id="user-signup-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <div class="container display" id="content02">
+        <div class="content">
+            <h2 id="login-h2">USER-LOGIN</h2>
+            <p>Don't have an account ? <a href="#" id="sign-up">Sign up</a></p>
+            <form id="login-form">
+                <input type="email" id="eemail_login" placeholder="Enter your email" autocomplete="off"> <br>
+                <div class="password-container">
+                    <input type="password" name="password" placeholder="Enter Password" id="lpassword_login">
+                    <i onclick="togglePassword('lpassword_login')" class="fas fa-eye toggle-password"></i>
+                </div>
+                <p><a href="forget_password.html" id="forgot-password">Forgot Password?</a></p>
+                <button type="submit" id="user-login-btn">Log-In</button>
+            </form>
+
+        </div>
+    </div>
+    <script>
+        document.getElementById('login').addEventListener('click', function () {
+            document.getElementById('content01').style.display = 'none';
+            document.getElementById('content02').style.display = 'block';
+        });
+        document.getElementById('sign-up').addEventListener('click', function () {
+            document.getElementById('content02').style.display = 'none';
+            document.getElementById('content01').style.display = 'block';
+        });
+
+        function togglePassword(passwordFieldId) {
+            var passwordInput = document.getElementById(passwordFieldId);
+            var toggleIcon = passwordInput.nextElementSibling;
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+    <script type="module" src="firebase-auth.js"></script>
+</body>
+
+</html>

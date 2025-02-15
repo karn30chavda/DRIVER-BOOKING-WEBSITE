@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>User Bookings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/HOME.CSS">
+  <style>
+     body {
+      font-family: 'Arial', sans-serif;
+      background-color: #212529;
+      color: #fff;
+      margin: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #4CAF50;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .booking {
+      background-color: #333;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      margin: 10px 0;
+      color: #ddd;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .booking:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+    .booking h2 {
+      width: 100%;
+      text-align: center;
+      color: #4CAF50;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .booking-details {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .booking-details > div {
+      width: 32%;
+      text-align: center;
+      margin: 5px 0;
+    }
+    .booking strong {
+      color: #4CAF50;
+    }
+    .booking span {
+      color: #ccc;
+    }
+    .cancelled {
+      background-color: #555;
+      text-decoration: line-through;
+      opacity: 0.5;
+      margin: 20px 0;
+    }
+    h2.cancelled-heading {
+      width: 100%;
+      text-align: center;
+      color: #FF6347;
+      margin: 20px 0;
+    }
+    button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 0px;
+    }
+    button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="images\logo.png" alt="Website Logo" style="cursor: pointer" onclick="window.location.reload()">
+      </div>
+
+      <ul id="menu-items">
+        <li class="item"><a href="HOME.HTML">Home</a></li>
+        <li class="item"><a href="SERVICES.HTML">Services</a></li>
+        <li class="item"><a href="RATES.HTML">Rates</a></li>
+        <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+      </ul>
+
+      <div id="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <!-- Dropdown menu items -->
+        <div id="dropdown-menu">
+          <li class="item"><a href="HOME.HTML">Home</a></li>
+          <li class="item"><a href="PROFILE.HTML" id="profile-login-link" style="display: none;">My Profile</a></li>
+          <li class="item"><a href='/my-bookings' id='booking-link'>My Bookings</a></li>
+          <li class="item"><a href="SERVICES.HTML">Services</a></li>
+          <li class="item"><a href="RATES.HTML">Rates</a></li>
+          <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+          <li class="item"><a href='/user-sign' id='user-login-link'>User</a></li>
+          <li class="item"><a href="DRIVER-LOGIN.HTML" id="driver-login-link">Driver</a></li>
+          <a href="#" id="logoutweb">Logout</a>
+        </div>
+      </div>
+      <!-- Add the login button -->
+      <button id="login-btn">LOGIN</button>
+      <div id="popup-container" class="admin-popup">
+        <div class="popup-content">
+          <button id="button1">User</button>
+          <button id="button2">Driver</button>
+        </div>
+      </div>
+      <div id="admin-icon" class="dropdown admin-icon">
+        <img src="images/admin_icon.png" id="userProfileImage" alt="Admin Profile Icon" style="cursor: pointer">
+        <div class="dropdown-content">
+          <a href='/profile' id='dropprofile'>My Profile</a>
+          <a href='/my-bookings' id='dropbooking'>My Bookings</a>
+          <a href="#" id="logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Your Bookings</h1>
+    <div id="bookingsContainer"></div>
+  </div>
+
+  <template id="bookingTemplate">
+    <div class="booking">
+      <h2>Local Booking</h2>
+      <div class="booking-details">
+        <div><strong>Trip Type:</strong> <span class="booking-trip-type"></span></div>
+        <div><strong>Date:</strong> <span class="date"></span></div>
+        <div><strong>Time:</strong> <span class="time"></span></div>
+        <div><strong>Car Type:</strong> <span class="booking-car-type"></span></div>
+        <div><strong>Pickup Location:</strong> <span class="booking-pickup-location"></span></div>
+        <div><strong>Visiting Location:</strong> <span class="booking-visiting-location"></span></div>
+        <div><strong>Rate:</strong> <span class="booking-rate"></span></div>
+        <div><strong>Address:</strong> <span class="booking-address"></span></div>
+        <div><strong>Status:</strong> <span class="booking-status"></span></div>
+      </div>
+      <button class="cancel-booking">Cancel Booking</button>
+    </div>
+  </template>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js';
+    import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
+    import { getDatabase, ref, onValue, update } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js';
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyD-yskwM8Ak2Zqc5AO5WVjYFNksWQtk-bc",
+      authDomain: "designated-driver-service-123.firebaseapp.com",
+      databaseURL: "https://designated-driver-service-123-default-rtdb.firebaseio.com",
+      projectId: "designated-driver-service-123",
+      storageBucket: "designated-driver-service-123.appspot.com",
+      messagingSenderId: "709589312938",
+      appId: "1:709589312938:web:e6d520a340c2892569b7d3",
+      measurementId: "G-NEC0RXRM2P"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+  
+    let activeBookingsContainer = document.createElement('div');
+    let cancelledBookingsContainer = document.createElement('div');
+  
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        const userId = user.uid;
+        const bookingsRef = ref(database, 'users/' + userId + '/local bookings');
+        onValue(bookingsRef, snapshot => {
+          const bookingsContainer = document.getElementById('bookingsContainer');
+          bookingsContainer.innerHTML = '';
+          activeBookingsContainer.innerHTML = '';
+          cancelledBookingsContainer.innerHTML = '';
+  
+          snapshot.forEach(childSnapshot => {
+            const booking = childSnapshot.val();
+            booking.id = childSnapshot.key;
+            displayBooking(booking, booking.status === 'Cancelled' ? cancelledBookingsContainer : activeBookingsContainer, userId);
+          });
+  
+          bookingsContainer.appendChild(activeBookingsContainer);
+          if (cancelledBookingsContainer.children.length > 0) {
+            const heading = document.createElement('h2');
+            heading.textContent = 'Cancelled Bookings';
+            heading.classList.add('cancelled-heading');
+            bookingsContainer.appendChild(heading);
+            bookingsContainer.appendChild(cancelledBookingsContainer);
+          }
+        });
+      } else {
+        document.getElementById('bookingsContainer').innerHTML = '<p>Please log in to see your bookings.</p>';
+      }
+    });
+  
+    function displayBooking(booking, container, userId) {
+      const clone = document.importNode(document.getElementById('bookingTemplate').content, true);
+      setBookingDetails(clone, booking);
+  
+      if (booking.status === 'Cancelled') {
+        clone.querySelector('.booking').classList.add('cancelled');
+        clone.querySelector('.cancel-booking').style.display = 'none';
+      } else {
+        clone.querySelector('.cancel-booking').addEventListener('click', function() {
+          if (confirm('Are you sure you want to cancel this booking?')) {
+            update(ref(database, `users/${userId}/local bookings/${booking.id}`), { status: 'Cancelled' })
+            .then(() => {
+              alert('Booking cancelled successfully.');
+              if (clone.parentNode === activeBookingsContainer) {
+                activeBookingsContainer.removeChild(clone);
+              }
+              clone.querySelector('.booking').classList.add('cancelled');
+              clone.querySelector('.cancel-booking').style.display = 'none';
+              cancelledBookingsContainer.appendChild(clone);
+            }).catch(error => {
+              console.error('Error cancelling booking:', error);
+            });
+          }
+        });
+      }
+  
+      container.appendChild(clone);
+    }
+  
+    function setBookingDetails(clone, booking) {
+      clone.querySelector('.booking-trip-type').textContent = booking.tripType 
+      clone.querySelector('.date').textContent = booking.date;
+      clone.querySelector('.time').textContent = booking.time;
+      clone.querySelector('.booking-car-type').textContent = booking.carType;
+      clone.querySelector('.booking-pickup-location').textContent = booking.pickupLocation;
+      clone.querySelector('.booking-visiting-location').textContent = booking.visitingLocation;
+      clone.querySelector('.booking-rate').textContent = booking.rate;
+      clone.querySelector('.booking-address').textContent = booking.address;
+      clone.querySelector('.booking-status').textContent = booking.status || 'Pending';
+    }
+  </script>
+  
+  
+  
+
+  </script>
+  <!-- SCRIPT FOR NAVBAR  -->
+  <script>
+
+    // FUNCTION FOR OPEN MENU TOGGLE IN NAVBAR
+
+    function toggleMenu() {
+      var navbar = document.getElementById("navbar");
+      navbar.classList.toggle("open");
+    }
+
+    window.addEventListener("click", function (event) {
+      if (!navbar.contains(event.target) && !navbarToggle.contains(event.target)) {
+        navbar.classList.remove("open");
+      }
+    });
+
+
+    // popup for admin-icon for driver and user
+
+    // popup for login-button for driver and user
+    document.addEventListener("DOMContentLoaded", function () {
+
+      var popupbtn = document.getElementById("login-btn");
+      var popup = document.getElementById("popup-container");
+
+      popup.style.display = "none";
+
+      // Toggle the popup visibility on click
+      popupbtn.addEventListener("click", function () {
+        if (popup.style.display === "none") {
+          popup.style.display = "block";
+        } else {
+          popup.style.display = "none";
+        }
+      });
+    });
+
+    // Button 1 click action
+    document.getElementById("button1").addEventListener("click", function () {
+      // Redirect to the desired page when Button 1 is clicked
+      window.location.href = "user-sign.html";
+    });
+
+    // Button 2 click action
+    document.getElementById("button2").addEventListener("click", function () {
+      // Redirect to the desired page when Button 2 is clicked
+      window.location.href = "DRIVER-LOGIN.html";
+    });
+
+
+    // Toggle functionality for the admin icon dropdown
+    var adminIcon = document.getElementById("admin-icon");
+    var dropdownContent = adminIcon.querySelector(".dropdown-content");
+
+    dropdownContent.style.display = "none"; // Hide dropdown by default
+
+
+  </script>
+  <script type="module">
+    import { logoutUser } from './firebase-auth.js';
+
+    document.getElementById('logoutweb').addEventListener('click', function () {
+      logoutUser();
+    });
+  </script>
+  <script type="module">
+    import { logoutUser } from './firebase-auth.js';
+
+    document.getElementById('logout').addEventListener('click', function () {
+      logoutUser();
+    });
+  </script>
+  <script type="module" src="firebase-auth.js"></script>
+</body>
+
+</html>

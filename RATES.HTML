@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designated Driver Service </title>
+  <link rel="stylesheet" href="css/HOME.CSS">
+  <link rel="stylesheet" href="css/RATES.CSS">
+  <link rel="icon" type="image/png" href="IMAGES/logo.png">
+</head>
+
+<body>
+  <header>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="images\logo.png" alt="Website Logo" style="cursor: pointer" onclick="window.location.reload()">
+      </div>
+
+      <ul id="menu-items">
+        <li class="item"><a href="HOME.HTML">Home</a></li>
+        <li class="item"><a href="SERVICES.HTML">Services</a></li>
+        <li class="item"><a href="RATES.HTML">Rates</a></li>
+        <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+      </ul>
+
+      <div id="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <!-- Dropdown menu items -->
+        <div id="dropdown-menu">
+          <li class="item"><a href="HOME.HTML">Home</a></li>
+          <li class="item"><a href="PROFILE.HTML" id="profile-login-link" style="display: none;">My Profile</a></li>
+          <li class="item"><a href="my-bookings.html" id="booking-link">My Bookings</a></li>
+          <li class="item"><a href="SERVICES.HTML">Services</a></li>
+          <li class="item"><a href="RATES.HTML">Rates</a></li>
+          <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+          <li class="item"><a href="user-sign.html" id="user-login-link">User</a></li>
+          <li class="item"><a href="DRIVER-LOGIN.HTML" id="driver-login-link">Driver</a></li>
+          <a href="#" id="logoutweb">Logout</a>
+        </div>
+      </div>
+      <!-- Add the login button -->
+      <button id="login-btn">LOGIN</button>
+      <div id="popup-container" class="admin-popup">
+        <div class="popup-content">
+          <button id="button1">User</button>
+          <button id="button2">Driver</button>
+        </div>
+      </div>
+      <div id="admin-icon" class="dropdown admin-icon">
+        <img src="images/admin_icon.png" id="userProfileImage" alt="Admin Profile Icon" style="cursor: pointer">
+        <div class="dropdown-content">
+          <a href="profile.html" id="dropprofile">My Profile</a>
+          <a href="my-bookings.html" id="dropbooking">My Bookings</a>
+          <a href="#" id="logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+<!--rates html -->
+
+<div class="rates-container">
+  <h2>Our Rates</h2>
+  <p>We ensure we keep our rates competitive and the best in industry with
+    all standards of services. You can choose from a wide range of plans and payment options.
+    We are just a call away for you.</p>
+
+</div>
+
+<section id="service-variety">
+  <button id="btn1" class="btn">Local</button>
+  <button id="btn2" class="btn">Outstation</button>
+  <button id="btn3" class="btn">Permanent</button>
+  </div>
+</section>
+
+<div id="target-div"></div>
+
+
+<!--footer-->
+
+<footer>
+  <div class="footer-container">
+    <div id="footer-logo">
+      <img src="images\logo.png" alt=" Website Logo">
+    </div>
+    <div class="footer-section">
+
+      <h2>About Us</h2>
+      <p>we provide a wide range of driver services to meet your needs. From hourly
+        drivers for short errands to permanent drivers for long-term commitments, we have the perfect driver for you.
+      </p>
+    </div>
+    <div class="footer-section">
+      <h2>OUR SERVICES</h2>
+      <ul>
+        <li><a onclick="location.href='SERVICES.html#local-service-cont'" style="cursor: pointer">Local Drivers</a></li>
+        <li><a onclick="location.href='SERVICES.html#outstation-service-cont'" style="cursor: pointer">Outstation Drivers</a></li>
+        <li><a onclick="location.href='SERVICES.html#outstation-drop-service-cont'" style="cursor: pointer">Permanent Drivers</a></li>
+        <li><a onclick="location.href='SERVICES.html#permanent-service-cont'" style="cursor: pointer">Outstation-Drop Drivers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h2>CONTACT US</h2>
+      <p>9/B Arasa shopping contor, S.V road, Next to panert shop, Andheri West, Mumbai-400058</p>
+      <p><a id="contact-link"
+          href="mailto:info@designateddriverandcabbooking.com">info@designateddriverandcabbooking.com</a></p>
+      <p>+022 4343 9090</p>
+    </div>
+
+
+    <div class="copyright">
+      <p>&copy; 2024 All Rights Reserved By Designated Driver Service</p>
+      <p><a href="TERMS-AND-COND.html">Terms & Conditions</a> </p>
+    </div>
+</footer>
+<script>
+  // fuction for choose rates 
+
+  function changeDivContent(buttonId) {
+    const targetDiv = document.getElementById("target-div");
+
+    switch (buttonId) {
+      case "btn1":
+        // Create first image element for Content 1
+        const image1 = document.createElement("img");
+        image1.src = "images/LOCAL-RATE1.png";
+        image1.alt = "Descriptive text for image 1";
+
+        // Create second image element for Content 1
+        const image1_2 = document.createElement("img");
+        image1_2.src = "images/LOCAl-RATE2.png";
+        image1_2.alt = "Descriptive text for second image 1";
+
+        // Create Third image element for Content 1
+        const image1_3 = document.createElement("img");
+        image1_3.src = "images/LOCAL-RATE3.png";
+        image1_3.alt = "Descriptive text for third image 1";
+
+        targetDiv.innerHTML = ""; // Clear previous content
+        targetDiv.appendChild(image1);
+        targetDiv.appendChild(image1_2); // Append the second image
+        targetDiv.appendChild(image1_3); // Append the third image
+        break;
+      case "btn2":
+        // Similar logic for button 2 with your image source
+        const image2 = document.createElement("img");
+        image2.src = "images/OUTSTATION-RATE1.png";
+        image2.alt = "Descriptive text for image 2";
+
+        const image2_2 = document.createElement("img");
+        image2_2.src = "images/OUTSTATION-RATE2.png";
+        image2_2.alt = "Descriptive text for second image 2";
+
+        targetDiv.innerHTML = "";
+        targetDiv.appendChild(image2);
+        targetDiv.appendChild(image2_2);
+
+        break;
+      case "btn3":
+        // Similar logic for button 3 with your image source
+        const image3 = document.createElement("img");
+        image3.src = "images/PERMANENT-RATES.png";
+        image3.alt = "Descriptive text for image 3";
+
+        targetDiv.innerHTML = "";
+        targetDiv.appendChild(image3);
+
+        break;
+      default:
+        targetDiv.innerHTML = "";
+        targetDiv.style.backgroundColor = "";
+    }
+  }
+
+  const btn1 = document.getElementById("btn1");
+  const btn2 = document.getElementById("btn2");
+  const btn3 = document.getElementById("btn3");
+
+  btn1.addEventListener("click", () => changeDivContent(btn1.id));
+  btn2.addEventListener("click", () => changeDivContent(btn2.id));
+  btn3.addEventListener("click", () => changeDivContent(btn3.id));
+</script>
+<script>
+
+  // FUNCTION FOR OPEN MENU TOGGLE IN NAVBAR
+
+  function toggleMenu() {
+    var navbar = document.getElementById("navbar");
+    navbar.classList.toggle("open");
+  }
+
+  window.addEventListener("click", function (event) {
+    if (!navbar.contains(event.target) && !navbarToggle.contains(event.target)) {
+      navbar.classList.remove("open");
+    }
+  });
+
+
+  // popup for admin-icon for driver and user
+
+  // popup for login-button for driver and user
+  document.addEventListener("DOMContentLoaded", function () {
+
+    var popupbtn = document.getElementById("login-btn");
+    var popup = document.getElementById("popup-container");
+
+    popup.style.display = "none";
+
+    // Toggle the popup visibility on click
+    popupbtn.addEventListener("click", function () {
+      if (popup.style.display === "none") {
+        popup.style.display = "block";
+      } else {
+        popup.style.display = "none";
+      }
+    });
+  });
+
+  // Button 1 click action
+  document.getElementById("button1").addEventListener("click", function () {
+    // Redirect to the desired page when Button 1 is clicked
+    window.location.href = "user-sign.html";
+  });
+
+  // Button 2 click action
+  document.getElementById("button2").addEventListener("click", function () {
+    // Redirect to the desired page when Button 2 is clicked
+    window.location.href = "DRIVER-LOGIN.html";
+  });
+
+
+  // Toggle functionality for the admin icon dropdown
+  var adminIcon = document.getElementById("admin-icon");
+  var dropdownContent = adminIcon.querySelector(".dropdown-content");
+
+  dropdownContent.style.display = "none"; // Hide dropdown by default
+
+
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logoutweb').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+<script type="module">
+  import { logoutUser } from './firebase-auth.js';
+
+  document.getElementById('logout').addEventListener('click', function () {
+    logoutUser();
+  });
+</script>
+<script type="module" src="firebase-auth.js"></script>
+</body>
+
+</html>

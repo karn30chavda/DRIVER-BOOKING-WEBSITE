@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designated Driver Service</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+sans-serif&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="IMAGES/logo.png">
+  <link rel="stylesheet" href="css/HOME.CSS">
+</head>
+
+<body>
+
+  <header>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="images\logo.png" alt="Website Logo" style="cursor: pointer" onclick="window.location.reload()">
+      </div>
+
+      <ul id="menu-items">
+        <li class="item"><a href="HOME.HTML">Home</a></li>
+        <li class="item"><a href="SERVICES.HTML">Services</a></li>
+        <li class="item"><a href="RATES.HTML">Rates</a></li>
+        <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+      </ul>
+
+      <div id="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <!-- Dropdown menu items -->
+        <div id="dropdown-menu">
+          <li class="item"><a href="HOME.HTML">Home</a></li>
+          <li class="item"><a href="PROFILE.HTML" id="profile-login-link" style="display: none;">My Profile</a></li>
+          <li class="item"><a href="my-bookings.html" id="booking-link">My Bookings</a></li>
+          <li class="item"><a href="SERVICES.HTML">Services</a></li>
+          <li class="item"><a href="RATES.HTML">Rates</a></li>
+          <li class="item"><a href="ABOUT_US.HTML">About us</a></li>
+          <li class="item"><a href="user-sign.html" id="user-login-link">User</a></li>
+          <li class="item"><a href="DRIVER-LOGIN.HTML" id="driver-login-link">Driver</a></li>
+          <a href="#" id="logoutweb">Logout</a>
+        </div>
+      </div>
+      <!-- Add the login button -->
+      <button id="login-btn">LOGIN</button>
+      <div id="popup-container" class="admin-popup">
+        <div class="popup-content">
+          <button id="button1">User</button>
+          <button id="button2">Driver</button>
+        </div>
+      </div>
+      <div id="admin-icon" class="dropdown admin-icon">
+        <img src="images/admin_icon.png" id="userProfileImage" alt="Admin Profile Icon" style="cursor: pointer">
+        <div class="dropdown-content">
+          <a href="profile.html" id="dropprofile">My Profile</a>
+          <a href="my-bookings.html" id="dropbooking">My Bookings</a>
+          <a href="#" id="logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home">
+    <div id="car-image">
+      <img class="carclass" src="IMAGES/driver-img.png" alt="car-image">
+    </div>
+    <div class="wrapper">
+      <div class="static-txt">Need a professional Driver<br>then book a Driver from </div>
+      <ul class="dynamic-txts">
+        <li><span>DESIGNATED DRIVER SERVICE</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="services-container">
+    <h1 class="h-primary center">OUR SERVICES</h1>
+    <div id="services">
+      <div id="local" class="box">
+        <a onclick="location.href='SERVICES.html#local-service-cont'">
+          <img src="IMAGES/LOCAL.png" alt="local">
+          <h2 class="secondary-center">LOCAL</h2>
+        </a>
+      </div>
+      <div id="outstation" class="box">
+        <a onclick="location.href='SERVICES.html#outstation-service-cont'">
+          <img src="IMAGES/OUTSTATION.png" alt="local">
+          <h2 class="secondary-center">OUTSTATION</h2>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="services-container">
+    <div id="services">
+      <div id="outstation-drop" class="box">
+        <a onclick="location.href='SERVICES.html#outstation-drop-service-cont'">
+          <img src="IMAGES/OUTSTATION-DROP.png" alt="local">
+          <h2 class="secondary-center">OUTSTATION-DROP</h2>
+        </a>
+      </div>
+      <div id="permanent" class="box">
+        <a onclick="location.href='SERVICES.html#permanent-service-cont'">
+          <img src="IMAGES/PERMANENT.png" alt="local">
+          <h2 class="secondary-center">PERMANENT</h2>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Location Section -->
+
+  <section>
+    <div class="location-para">
+      <h2>LOCATION WE CATER</h2>
+      <p id="location-info">We are committed to providing the best possible services in all cities. Designated driver
+        service provides
+        corporate drivers in Multiple location for business travel, airport transfers, long/short term stays, and
+        excursions.</p>
+    </div>
+    <div class="location-box">
+      <div id="location1" class="location-img">
+        <div class="location">
+          <img src="IMAGES/location.png" alt="Location">
+          <p>Mumbai</p>
+        </div>
+        <div id="location2" class="location">
+          <img src="IMAGES/location.png" alt="Location">
+          <p> Navi Mumbai</p>
+        </div>
+      </div>
+      <div class="location-box">
+        <div id="location3" class="location">
+          <img src="IMAGES/location.png" alt="Location">
+          <p>Thane</p>
+        </div>
+        <div id="location4" class="location">
+          <img src="IMAGES/location.png" alt="Location">
+          <p>Pune</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Review section -->
+
+  <section>
+    <div class="review-container">
+      <div class="container__left">
+        <h1>Our Happy Clients</h1>
+        <p>
+          For your high-end and luxury vehicles, we have a dedicated team of professional
+          driver service who have experience in handling prestigious automobiles.
+        </p>
+        <p>
+          Tailoring our service to your unique needs, we match you with a suitable driver who meets your
+          specific requirements and preferences, ensuring a personalized experience.
+        </p>
+        <a href="success.html"><button>Read our success stories</button></a>
+      </div>
+      <div class="container__right">
+        <div class="card">
+          <img src="IMAGES/client-1.png" alt="user" />
+          <div class="card__content">
+            <span><i class="ri-double-quotes-l"></i></span>
+            <div class="card__details">
+              <p>
+                Most of the drivers we hire are good, courteous, drives well. Quite happy with the services.
+              </p>
+              <h4>- Stacy Stone</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="IMAGES/client-2.png" alt="user" />
+          <div class="card__content">
+            <span><i class="ri-double-quotes-l"></i></span>
+            <div class="card__details">
+              <p>
+                I have been availing of Designated Driver services for the past 1 years.
+                It was EXCELLENT. Rehanuma is the beacon that holds it all together.
+                Fantastic Manager who gives best service, even today.
+              </p>
+              <h4>- Andrew Jettpace</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="IMAGES/client-3.jpg" alt="user" />
+          <div class="card__content">
+            <span><i class="ri-double-quotes-l"></i></span>
+            <div class="card__details">
+              <p>
+                Very good person comes on time very good nature neat and clean driving is very good
+                if i want to give stars 10 on 10 i will give want like this driver.
+              </p>
+              <h4>- Marnus Stephenx</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!--footer-->
+
+  <footer>
+    <div class="footer-container">
+      <div id="footer-logo">
+        <img src="images\logo.png" alt=" Website Logo">
+      </div>
+      <div class="footer-section">
+
+        <h2>About Us</h2>
+        <p>we provide a wide range of driver services to meet your needs. From hourly
+          drivers for short errands to permanent drivers for long-term commitments, we have the perfect driver for you.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h2>OUR SERVICES</h2>
+        <ul>
+          <li><a onclick="location.href='SERVICES.html#local-service-cont'" style="cursor: pointer">Local Drivers</a>
+          </li>
+          <li><a onclick="location.href='SERVICES.html#outstation-service-cont'" style="cursor: pointer">Outstation
+              Drivers</a></li>
+          <li><a onclick="location.href='SERVICES.html#outstation-drop-service-cont'" style="cursor: pointer">Permanent
+              Drivers</a></li>
+          <li><a onclick="location.href='SERVICES.html#permanent-service-cont'" style="cursor: pointer">Outstation-Drop
+              Drivers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h2>CONTACT US</h2>
+        <p>9/B Arasa shopping contor, S.V road, Next to panert shop, Andheri West, Mumbai-400058</p>
+        <p><a id="contact-link"
+            href="mailto:info@designateddriverandcabbooking.com">info@designateddriverandcabbooking.com</a></p>
+        <p>+022 4343 9090</p>
+      </div>
+
+
+      <div class="copyright">
+        <p>&copy; 2024 All Rights Reserved By Designated Driver Service</p>
+        <p><a href="TERMS-AND-COND.html">Terms & Conditions</a> </p>
+      </div>
+  </footer>
+  <script>
+
+    // FUNCTION FOR OPEN MENU TOGGLE IN NAVBAR
+
+    function toggleMenu() {
+      var navbar = document.getElementById("navbar");
+      navbar.classList.toggle("open");
+    }
+
+    window.addEventListener("click", function (event) {
+      if (!navbar.contains(event.target) && !navbarToggle.contains(event.target)) {
+        navbar.classList.remove("open");
+      }
+      
+    });
+
+
+    // popup for admin-icon for driver and user
+
+    // popup for login-button for driver and user
+    document.addEventListener("DOMContentLoaded", function () {
+
+      var popupbtn = document.getElementById("login-btn");
+      var popup = document.getElementById("popup-container");
+
+      popup.style.display = "none";
+
+      // Toggle the popup visibility on click
+      popupbtn.addEventListener("click", function () {
+        if (popup.style.display === "none") {
+          popup.style.display = "block";
+        } else {
+          popup.style.display = "none";
+        }
+      });
+    });
+
+    // Button 1 click action
+    document.getElementById("button1").addEventListener("click", function () {
+      // Redirect to the desired page when Button 1 is clicked
+      window.location.href = "user-sign.html";
+    });
+
+    // Button 2 click action
+    document.getElementById("button2").addEventListener("click", function () {
+      // Redirect to the desired page when Button 2 is clicked
+      window.location.href = "DRIVER-LOGIN.html";
+    });
+
+
+    // Toggle functionality for the admin icon dropdown
+    var adminIcon = document.getElementById("admin-icon");
+    var dropdownContent = adminIcon.querySelector(".dropdown-content");
+
+    dropdownContent.style.display = "none"; // Hide dropdown by default
+
+
+  </script>
+  <script type="module">
+    import { logoutUser } from './firebase-auth.js';
+
+    document.getElementById('logoutweb').addEventListener('click', function () {
+      logoutUser();
+    });
+  </script>
+  <script type="module">
+    import { logoutUser } from './firebase-auth.js';
+
+    document.getElementById('logout').addEventListener('click', function () {
+      logoutUser();
+    });
+  </script>
+  <script type="module" src="firebase-auth.js"></script>
+</body>
+
+</html>
