@@ -18,6 +18,7 @@ User profile management
 Password recovery option
 
 
+
 Booking System
 
 Book a driver for local, outstation, or permanent hire
@@ -25,6 +26,7 @@ Book a driver for local, outstation, or permanent hire
 Real-time booking status updates
 
 Driver selection and confirmation
+
 
 
 Driver Features
@@ -43,11 +45,13 @@ View active and past bookings
 Track driver location (via contact details)
 
 
+
 Security & Trust
 
 Driver background verification
 
 Secure login and encrypted data
+
 
 
 Admin Panel (Optional Future Enhancement)
