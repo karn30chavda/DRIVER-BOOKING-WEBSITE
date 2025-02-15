@@ -9,7 +9,7 @@ The Designated Driver Service (DDS) is a web-based platform designed to provide 
 
 Features Breakdown
 
-User Registration & Authentication
+* User Registration & Authentication
 
 Secure sign-up and login system
 
@@ -19,7 +19,7 @@ Password recovery option
 
 
 
-Booking System
+* Booking System
 
 Book a driver for local, outstation, or permanent hire
 
@@ -29,7 +29,7 @@ Driver selection and confirmation
 
 
 
-Driver Features
+* Driver Features
 
 Driver registration and login
 
@@ -38,7 +38,7 @@ Accept/reject ride requests
 Manage bookings and schedules
 
 
-Real-time Updates
+* Real-time Updates
 
 View active and past bookings
 
@@ -46,7 +46,7 @@ Track driver location (via contact details)
 
 
 
-Security & Trust
+* Security & Trust
 
 Driver background verification
 
@@ -54,7 +54,7 @@ Secure login and encrypted data
 
 
 
-Admin Panel (Optional Future Enhancement)
+* Admin Panel (Optional Future Enhancement)
 
 Manage users and drivers
 
@@ -65,7 +65,7 @@ Monitor bookings and system activity
 
 ---
 
-Tech Stack
+* Tech Stack
 
 Frontend: HTML, CSS, JavaScript
 
@@ -84,7 +84,7 @@ Web Browsers (Chrome, Firefox, Edge, etc.)
 
 ---
 
-Installation & Setup Instructions
+* Installation & Setup Instructions
 
 1. Clone the repository:
 
@@ -117,7 +117,7 @@ Live Demo : https://designated-driver-service.netlify.app
 
 ---
 
-Usage Guide
+* Usage Guide
 
 1. User Actions
 
@@ -145,7 +145,7 @@ Manage booking schedules
 
 ---
 
-Security Considerations
+* Security Considerations
 
 Authentication: Secure Firebase Authentication for user and driver login
 
@@ -157,7 +157,7 @@ Role-based Access: Ensuring restricted access to sensitive data
 
 ---
 
-Browser Support
+* Browser Support
 
 Google Chrome
 
@@ -171,7 +171,7 @@ Safari (limited testing)
 
 ---
 
-Contributing
+* Contributing
 
 Contributions are welcome! Follow these steps to contribute:
 
@@ -194,14 +194,14 @@ Contributions are welcome! Follow these steps to contribute:
 
 ---
 
-License
+* License
 
 This project is licensed under the MIT License.
 
 
 ---
 
-Contact Information
+* Contact Information
 
 For queries and suggestions, contact:
 
